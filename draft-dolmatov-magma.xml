@@ -7,7 +7,7 @@
 <?rfc sortrefs="yes" ?>
 <?rfc compact="yes" ?>
 <?rfc subcompact="no" ?>
-<rfc category="info" docName="draft-lumag-magma-00" ipr="trust200902"
+<rfc category="info" docName="draft-dolmatov-magma-00" ipr="trust200902"
      updates="5830">
   <front>
     <title abbrev="Abbreviated Title">GOST R 34.12-2015: Block Cipher
@@ -17,7 +17,27 @@
 
     <!---->
 
-    <author fullname="Dmitry Eremin-Solenikov" initials="D." role="editor"
+    <author fullname="Vasily Dolmatov" initials="V." surname="Dolmatov" role="editor">
+      <organization>JSC "NPK Kryptonite"</organization>
+
+      <address>
+        <postal>
+          <street>Spartanskaya sq., 14, bld 2 "E" 3, room 4, JSC "NPK Kryptonite"</street>
+
+          <city>Moscow</city>
+
+          <region/>
+
+          <code>105082</code>
+
+          <country>Russian Federation</country>
+        </postal>
+
+        <email>vdolmatov@gmail.com</email>
+      </address>
+    </author>
+
+    <author fullname="Dmitry Eremin-Solenikov" initials="D."
             surname="Eremin-Solenikov">
       <organization>Auriga, Inc</organization>
 
@@ -35,26 +55,6 @@
         </postal>
 
         <email>dbaryshkov@gmail.com</email>
-      </address>
-    </author>
-
-    <author fullname="Vasily Dolmatov" initials="V." surname="Dolmatov">
-      <organization>Research Computer Center MSU</organization>
-
-      <address>
-        <postal>
-          <street>Leninskiye Gory, 1, building 4, MGU NIVC</street>
-
-          <city>Moscow</city>
-
-          <region/>
-
-          <code>119991</code>
-
-          <country>Russian Federation</country>
-        </postal>
-
-        <email>dol@srcc.msu.ru</email>
       </address>
     </author>
 
