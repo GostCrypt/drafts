@@ -22,7 +22,7 @@
 
       <address>
         <postal>
-          <street>Spartanskaya sq., 14, bld 2 "E" 3, room 4, JSC "NPK Kryptonite"</street>
+          <street>Spartakovskaya sq., 14, bld 2, JSC "NPK Kryptonite"</street>
 
           <city>Moscow</city>
 
@@ -69,10 +69,11 @@
     <keyword>Block Cipher</keyword>
 
     <abstract>
-      <t>This document is intended to be a source of information about the
-      Russian Federal standard GOST R 34.12-2015 describing block cipher with
+      <t>This document is intended to be a source of information about block cipher with
       block length of n=64 bits and key length k=256 bits, which is also
-      referred as "Magma". This algorithm is one of the set of Russian
+      referred as "Magma" described in the Russian Federal standard GOST R 34.12-2015, 
+       containing also the description of block cipher "Kuznechik" <xref target="RFC7801"/>. 
+      These algorithms are from the set of Russian
       cryptographic standard algorithms (called GOST algorithms).</t>
     </abstract>
   </front>
@@ -230,6 +231,10 @@
           </list></t>
       </section>
     </section>
+<section title="Description of 'Kuznechik' cipher ">
+This section corresponds to "Kuznechik" cipher and is described in <xref target="RFC7801"/>
+</section>
+
 
     <section title="Parameter Values">
       <section title="Nonlinear Bijection">
@@ -601,15 +606,15 @@ G[K_2]...G[K_32](b_1, b_0) = (28da3b14, 76543210).]]></artwork>
     </section>
 
     <section title="Background">
-      <t>Technically Magma is a variation of tranformation defined in
+      <t>Algoritmically Magma is a variation of block cipher defined in
         <xref target="RFC5830"/> (<xref target="GOST28147-89"/>)
-	with the following differences:
+	with the following clarifications and minor modifications:
 	<list style="numbers">
-	  <t>S-BOX is fixed at id-tc26-gost-28147-param-Z
+	  <t>S-BOX set is fixed at id-tc26-gost-28147-param-Z
 	    (See Appendix C of <xref target="RFC7836" />);</t>
-	  <t>key is parsed as a single big-endian integer (compared to little-endian approach used with <xref target="GOST28147-89" />),
+	  <t>key is parsed as a single big-endian integer (compared to little-endian approach used in <xref target="GOST28147-89" />),
 	    which results in different subkey values being used;</t>
-	  <t>data is also parsed as signle big-endian integer (instead of being parsed as little-endian integer).</t>
+	  <t>data are also parsed as single big-endian integer (instead of being parsed as little-endian integer).</t>
 	</list>
       </t>
     </section>
