@@ -69,12 +69,11 @@
     <keyword>Block Cipher</keyword>
 
     <abstract>
-      <t>This document is intended to be a source of information about block cipher with
-      block length of n=64 bits and key length k=256 bits, which is also
-      referred as "Magma" described in the Russian Federal standard GOST R 34.12-2015, 
-       containing also the description of block cipher "Kuznechik" <xref target="RFC7801"/>. 
-      These algorithms are from the set of Russian
-      cryptographic standard algorithms (called GOST algorithms).</t>
+      <t>This document is intended to be a source of information about updated version of the block cipher with
+      block length of n=64 bits and key length k=256 bits (RFC5830), which is also
+      referred as "Magma" and is described in the Russian Federal standard GOST R 34.12-2015, 
+       containing also the description of block cipher "Kuznechik" (RFC7801)/>. 
+      These algorithms are from the set of Russian cryptographic standard algorithms (called GOST algorithms).</t>
     </abstract>
   </front>
 
@@ -231,7 +230,7 @@
           </list></t>
       </section>
     </section>
-	<section title="Description of Kuznechik cipher ">
+<section title="Description of Kuznechik cipher ">
 <t>This section corresponds to "Kuznechik" cipher and is described in <xref target="RFC7801"/></t>
 </section>
 
@@ -334,11 +333,7 @@ K_(i+24)=K_(9-i), i = 1, 2, ..., 8.]]></artwork>
       </section>
     </section>
 
-    <section anchor="Acknowledgements" title="Acknowledgements">
-      <t>This RFC is heavily based on <xref target="RFC7801"/>.</t>
-    </section>
-
-    <section anchor="IANA" title="IANA Considerations">
+        <section anchor="IANA" title="IANA Considerations">
       <t>This memo includes no request to IANA.</t>
     </section>
 

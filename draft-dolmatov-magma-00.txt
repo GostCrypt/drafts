@@ -1,3 +1,7 @@
+
+
+
+
 Internet Engineering Task Force                         V. Dolmatov, Ed.
 Internet-Draft                                      JSC "NPK Kryptonite"
 Updates: 5830 (if approved)                          D. Eremin-Solenikov
@@ -10,11 +14,13 @@ Expires: December 27, 2019                                 June 25, 2019
 
 Abstract
 
-   This document is intended to be a source of information about the
-   Russian Federal standard GOST R 34.12-2015 describing block cipher
-   with block length of n=64 bits and key length k=256 bits, which is
-   also referred as "Magma".  This algorithm is one of the set of
-   Russian cryptographic standard algorithms (called GOST algorithms).
+   This document is intended to be a source of information about updated
+   version of the block cipher with block length of n=64 bits and key
+   length k=256 bits (RFC5830), which is also referred as "Magma" and is
+   described in the Russian Federal standard GOST R 34.12-2015,
+   containing also the description of block cipher "Kuznechik"
+   (RFC7801)/>.  These algorithms are from the set of Russian
+   cryptographic standard algorithms (called GOST algorithms).
 
 Status of This Memo
 
@@ -44,8 +50,6 @@ Copyright Notice
    publication of this document.  Please review these documents
    carefully, as they describe your rights and restrictions with respect
    to this document.  Code Components extracted from this document must
-   include Simplified BSD License text as described in Section 4.e of
-
 
 
 
@@ -54,6 +58,7 @@ Dolmatov & Eremin-SoleniExpires December 27, 2019               [Page 1]
 Internet-Draft              Abbreviated Title                  June 2019
 
 
+   include Simplified BSD License text as described in Section 4.e of
    the Trust Legal Provisions and are provided without warranty as
    described in the Simplified BSD License.
 
@@ -64,14 +69,14 @@ Table of Contents
    3.  Definitions and Notations . . . . . . . . . . . . . . . . . .   3
      3.1.  Definitions . . . . . . . . . . . . . . . . . . . . . . .   3
      3.2.  Notations . . . . . . . . . . . . . . . . . . . . . . . .   4
-   4.  Parameter Values  . . . . . . . . . . . . . . . . . . . . . .   5
-     4.1.  Nonlinear Bijection . . . . . . . . . . . . . . . . . . .   5
-     4.2.  Transformations . . . . . . . . . . . . . . . . . . . . .   6
-     4.3.  Key schedule  . . . . . . . . . . . . . . . . . . . . . .   6
-   5.  Basic encryption algorithm  . . . . . . . . . . . . . . . . .   7
-     5.1.  Encryption  . . . . . . . . . . . . . . . . . . . . . . .   7
-     5.2.  Decryption  . . . . . . . . . . . . . . . . . . . . . . .   7
-   6.  Acknowledgements  . . . . . . . . . . . . . . . . . . . . . .   7
+   4.  Description of Kuznechik cipher . . . . . . . . . . . . . . .   5
+   5.  Parameter Values  . . . . . . . . . . . . . . . . . . . . . .   5
+     5.1.  Nonlinear Bijection . . . . . . . . . . . . . . . . . . .   5
+     5.2.  Transformations . . . . . . . . . . . . . . . . . . . . .   6
+     5.3.  Key schedule  . . . . . . . . . . . . . . . . . . . . . .   6
+   6.  Basic encryption algorithm  . . . . . . . . . . . . . . . . .   7
+     6.1.  Encryption  . . . . . . . . . . . . . . . . . . . . . . .   7
+     6.2.  Decryption  . . . . . . . . . . . . . . . . . . . . . . .   7
    7.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .   7
    8.  Security Considerations . . . . . . . . . . . . . . . . . . .   7
    9.  References  . . . . . . . . . . . . . . . . . . . . . . . . .   7
@@ -79,12 +84,12 @@ Table of Contents
      9.2.  Informative References  . . . . . . . . . . . . . . . . .   8
    Appendix A.  Test Examples  . . . . . . . . . . . . . . . . . . .   8
      A.1.  Transformation t  . . . . . . . . . . . . . . . . . . . .   8
-     A.2.  Transformation g  . . . . . . . . . . . . . . . . . . . .   9
+     A.2.  Transformation g  . . . . . . . . . . . . . . . . . . . .   8
      A.3.  Key schedule  . . . . . . . . . . . . . . . . . . . . . .   9
      A.4.  Test Encryption . . . . . . . . . . . . . . . . . . . . .  10
      A.5.  Test Decryption . . . . . . . . . . . . . . . . . . . . .  11
    Appendix B.  Background . . . . . . . . . . . . . . . . . . . . .  12
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  13
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  12
 
 1.  Introduction
 
@@ -99,7 +104,6 @@ Table of Contents
    both for hardware and software implementation.  They comply with
    modern cryptographic requirements, and put no restrictions on the
    confidentiality level of the protected information.
-
 
 
 
@@ -249,9 +253,14 @@ Internet-Draft              Abbreviated Title                  June 2019
 
         P^s  composition of mappings P^(s-1) and P, where P^1=P,
 
-4.  Parameter Values
+4.  Description of Kuznechik cipher
 
-4.1.  Nonlinear Bijection
+   This section corresponds to "Kuznechik" cipher and is described in
+   [RFC7801]
+
+5.  Parameter Values
+
+5.1.  Nonlinear Bijection
 
    The bijective nonlinear mapping is a set of substitutions:
 
@@ -262,11 +271,6 @@ Internet-Draft              Abbreviated Title                  June 2019
    Pi'_i: Z_(2^4) -> Z_(2^4), i = 0, 1, ..., 7.
 
    The values of the substitution Pi' are specified below as arrays
-
-
-
-
-
 
 
 
@@ -289,7 +293,7 @@ Internet-Draft              Abbreviated Title                  June 2019
    Pi'_6 = (8, 14, 2, 5, 6, 9, 1, 12, 15, 4, 11, 0, 13, 10, 3, 7);
    Pi'_7 = (1, 7, 14, 13, 0, 5, 8, 3, 4, 15, 10, 6, 9, 12, 11, 2);
 
-4.2.  Transformations
+5.2.  Transformations
 
    The following transformations are applicable for encryption and
    decryption algorithms:
@@ -307,7 +311,7 @@ Internet-Draft              Abbreviated Title                  June 2019
    G^*[k]: V_32[*]V_32 -> V_64  G^*[k](a_1, a_0) = (g[k](a_0) (xor)
       a_1) || a_0, where k, a_0, a_1 belong to V_32.
 
-4.3.  Key schedule
+5.3.  Key schedule
 
    Round keys K_i belonging to V_32, i=1, 2, ..., 32 are derived from
    key K=k_255||...||k_0 belonging to V_256, k_i belongs to V_1, i=0, 1,
@@ -334,9 +338,9 @@ Dolmatov & Eremin-SoleniExpires December 27, 2019               [Page 6]
 Internet-Draft              Abbreviated Title                  June 2019
 
 
-5.  Basic encryption algorithm
+6.  Basic encryption algorithm
 
-5.1.  Encryption
+6.1.  Encryption
 
    Depending on the values of round keys K_1,...,K_32, the encryption
    algorithm is a substitution E_(K_1,...,K_32) defined as follows:
@@ -345,7 +349,7 @@ Internet-Draft              Abbreviated Title                  June 2019
 
    where a=(a_1, a_0) belongs to V_64, and a_0, a_1 belong to V_32.
 
-5.2.  Decryption
+6.2.  Decryption
 
    Depending on the values of round keys K_1,...,K_32, the decryption
    algorithm is a substitution D_(K_1,...,K_32) defined as follows:
@@ -353,10 +357,6 @@ Internet-Draft              Abbreviated Title                  June 2019
    D_(K_1,...,K_32)(a)=G^*[K_1]G[K_2]...G[K_31]G[K_32](a_1, a_0),
 
    where a=(a_1, a_0) belongs to V_64, and a_0, a_1 belong to V_32.
-
-6.  Acknowledgements
-
-   This RFC is heavily based on [RFC7801].
 
 7.  IANA Considerations
 
@@ -380,6 +380,10 @@ Internet-Draft              Abbreviated Title                  June 2019
               RFC 5830, DOI 10.17487/RFC5830, March 2010,
               <https://www.rfc-editor.org/info/rfc5830>.
 
+   [RFC7801]  Dolmatov, V., Ed., "GOST R 34.12-2015: Block Cipher
+              "Kuznyechik"", RFC 7801, DOI 10.17487/RFC7801, March 2016,
+              <https://www.rfc-editor.org/info/rfc7801>.
+
 
 
 
@@ -389,10 +393,6 @@ Dolmatov & Eremin-SoleniExpires December 27, 2019               [Page 7]
 
 Internet-Draft              Abbreviated Title                  June 2019
 
-
-   [RFC7801]  Dolmatov, V., Ed., "GOST R 34.12-2015: Block Cipher
-              "Kuznyechik"", RFC 7801, DOI 10.17487/RFC7801, March 2016,
-              <https://www.rfc-editor.org/info/rfc7801>.
 
    [RFC7836]  Smyshlyaev, S., Ed., Alekseev, E., Oshkin, I., Popov, V.,
               Leontiev, S., Podobaev, V., and D. Belyavsky, "Guidelines
@@ -435,8 +435,12 @@ A.1.  Transformation t
    t(ebd9f03a) = b039bb3d,
    t(b039bb3d) = 68695433.
 
+A.2.  Transformation g
 
-
+   g[87654321](fedcba98) = fdcbc20c,
+   g[fdcbc20c](87654321) = 7e791a4b,
+   g[7e791a4b](fdcbc20c) = c76549ec,
+   g[c76549ec](7e791a4b) = 9791c849.
 
 
 
@@ -446,13 +450,6 @@ Dolmatov & Eremin-SoleniExpires December 27, 2019               [Page 8]
 Internet-Draft              Abbreviated Title                  June 2019
 
 
-A.2.  Transformation g
-
-   g[87654321](fedcba98) = fdcbc20c,
-   g[fdcbc20c](87654321) = 7e791a4b,
-   g[7e791a4b](fdcbc20c) = c76549ec,
-   g[c76549ec](7e791a4b) = 9791c849.
-
 A.3.  Key schedule
 
    With key set to
@@ -460,47 +457,6 @@ A.3.  Key schedule
    K = ffeeddccbbaa99887766554433221100f0f1f2f3f4f5f6f7f8f9fafbfcfdfeff,
 
    following round keys are generated:
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Dolmatov & Eremin-SoleniExpires December 27, 2019               [Page 9]
-
-Internet-Draft              Abbreviated Title                  June 2019
-
 
    K_1 = ffeeddcc,
    K_2 = bbaa9988,
@@ -538,6 +494,18 @@ Internet-Draft              Abbreviated Title                  June 2019
    K_31 = bbaa9988,
    K_32 = ffeeddcc.
 
+
+
+
+
+
+
+
+Dolmatov & Eremin-SoleniExpires December 27, 2019               [Page 9]
+
+Internet-Draft              Abbreviated Title                  June 2019
+
+
 A.4.  Test Encryption
 
    In this test example, encryption is performed on the round keys
@@ -546,17 +514,6 @@ A.4.  Test Encryption
    a = fedcba9876543210,
 
    then
-
-
-
-
-
-
-
-Dolmatov & Eremin-SoleniExpires December 27, 2019              [Page 10]
-
-Internet-Draft              Abbreviated Title                  June 2019
-
 
    (a_1, a_0) = (fedcba98, 76543210),
    G[K_1](a_1, a_0) = (76543210, 28da3b14),
@@ -595,6 +552,16 @@ Internet-Draft              Abbreviated Title                  June 2019
 
    b = G^*[K_32]G[K_31]...G[K_1](a_1, a_0) = 4ee901e5c2d8ca3d.
 
+
+
+
+
+
+Dolmatov & Eremin-SoleniExpires December 27, 2019              [Page 10]
+
+Internet-Draft              Abbreviated Title                  June 2019
+
+
 A.5.  Test Decryption
 
    In this test example, decryption is performed on the round keys
@@ -603,16 +570,6 @@ A.5.  Test Decryption
    b = 4ee901e5c2d8ca3d,
 
    then
-
-
-
-
-
-
-Dolmatov & Eremin-SoleniExpires December 27, 2019              [Page 11]
-
-Internet-Draft              Abbreviated Title                  June 2019
-
 
    (b_1, b_0) = (4ee901e5, c2d8ca3d),
    G[K_32](b_1, b_0) = (c2d8ca3d, 239a4577),
@@ -651,33 +608,37 @@ Internet-Draft              Abbreviated Title                  June 2019
 
    a = G^*[K_1]G[K_2]...G[K_32](b_1, b_0) = fedcba9876543210.
 
-Appendix B.  Background
-
-   Technically Magma is a variation of tranformation defined in
-   [RFC5830] ([GOST28147-89]) with the following differences:
-
-   1.  S-BOX is fixed at id-tc26-gost-28147-param-Z (See Appendix C of
-       [RFC7836]);
-
-   2.  key is parsed as a single big-endian integer (compared to little-
-       endian approach used with [GOST28147-89]), which results in
-       different subkey values being used;
 
 
 
-Dolmatov & Eremin-SoleniExpires December 27, 2019              [Page 12]
+
+
+Dolmatov & Eremin-SoleniExpires December 27, 2019              [Page 11]
 
 Internet-Draft              Abbreviated Title                  June 2019
 
 
-   3.  data is also parsed as signle big-endian integer (instead of
+Appendix B.  Background
+
+   Algoritmically Magma is a variation of block cipher defined in
+   [RFC5830] ([GOST28147-89]) with the following clarifications and
+   minor modifications:
+
+   1.  S-BOX set is fixed at id-tc26-gost-28147-param-Z (See Appendix C
+       of [RFC7836]);
+
+   2.  key is parsed as a single big-endian integer (compared to little-
+       endian approach used in [GOST28147-89]), which results in
+       different subkey values being used;
+
+   3.  data are also parsed as single big-endian integer (instead of
        being parsed as little-endian integer).
 
 Authors' Addresses
 
    Vasily Dolmatov (editor)
    JSC "NPK Kryptonite"
-   Spartanskaya sq., 14, bld 2 "E" 3, room 4, JSC "NPK Kryptonite"
+   Spartakovskaya sq., 14, bld 2, JSC "NPK Kryptonite"
    Moscow  105082
    Russian Federation
 
@@ -708,18 +669,4 @@ Authors' Addresses
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-Dolmatov & Eremin-SoleniExpires December 27, 2019              [Page 13]
-
+Dolmatov & Eremin-SoleniExpires December 27, 2019              [Page 12]
