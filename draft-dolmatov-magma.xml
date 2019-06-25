@@ -231,8 +231,8 @@
           </list></t>
       </section>
     </section>
-<section title="Description of Kuznechik cipher ">
-This section corresponds to "Kuznechik" cipher and is described in <xref target="RFC7801"/>
+	<section title="Description of Kuznechik cipher ">
+<t>This section corresponds to "Kuznechik" cipher and is described in <xref target="RFC7801"/></t>
 </section>
 
 
