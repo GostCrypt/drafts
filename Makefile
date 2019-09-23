@@ -1,6 +1,6 @@
 DRAFTS = draft-dolmatov-magma.xml
 
-OUT = $(DRAFTS:.xml=.html) $(DRAFTS:.xml=.txt)
+OUT = $(DRAFTS:.xml=.html) $(DRAFTS:.xml=.txt) $(DRAFTS:.xml=.pdf)
 
 all: $(OUT)
 
@@ -12,3 +12,6 @@ clean:
 
 %.txt: %.xml
 	xml2rfc --text $^
+
+%.pdf: %.xml
+	xml2rfc --pdf $^
