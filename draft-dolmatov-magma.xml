@@ -69,11 +69,27 @@
     <keyword>Block Cipher</keyword>
 
     <abstract>
-      <t>This document is intended to be a source of information about updated version of the block cipher with
-      block length of n=64 bits and key length k=256 bits (RFC5830), which is also
-      referred as "Magma" and is described in the Russian Federal standard GOST R 34.12-2015, 
-      containing also the description of block cipher "Kuznechik" (RFC7801).
-      These algorithms are from the set of Russian cryptographic standard algorithms (called GOST algorithms).</t>
+      <t>The Russian Federal standard for electronic encryption, decryption,
+	and message authentication algorithms (GOST 28147-89), which is one
+	of the Russian cryptographic standard algorithms is described in
+	RFC 5830.  Since its publication, an update to the Russian Federal
+	standard was published as GOST R 34.12-2015 that includes the
+	specification of the block cipher known as "Kuznyechik" which has been
+	described in RFC7801.</t>
+
+      <t>GOST R 34.12-2015 also includes an updated version of the block
+	cipher with block length of n=64 bits and key length k=256 bits, which
+	is also referred as "Magma".  This document is intended to be a source
+	of information about the updated version of 64-bit cipher. It may
+	facilitate the use of the block cipher in Internet applications by
+	providing information for developers and users of GOST 64-bit
+	cipherwith the revised version of the cipherfor encryption and
+	decryption.</t>
+
+      <t>Unlike RFC 5830 (GOST 28147-89) and like RFC 7801 this specification
+	does not define exact block modes which should be used together with
+	updated Magma cipher. One is free to select block modes depending on
+	the protocol and necessity.</t>
     </abstract>
   </front>
 
@@ -86,10 +102,10 @@
       during information transmission, processing and storage in
       computer-aided systems.</t>
 
-      <t>The cryptographic algorithms specified in this Standard are designed
-      both for hardware and software implementation. They comply with modern
-      cryptographic requirements, and put no restrictions on the
-      confidentiality level of the protected information.</t>
+      <t>The cryptographic algorithms specified in this specification are
+	designed both for hardware and software implementation. They comply
+	with modern cryptographic requirements, and put no restrictions on the
+	confidentiality level of the protected information.</t>
     </section>
 
     <section title="General Information">
@@ -101,7 +117,7 @@
       34.12-2015 was approved and introduced by Decree #749 of the Federal
       Agency on Technical Regulating and Metrology on 19.06.2015.</t>
 
-      <t>Terms and concepts in the standard comply with the following
+      <t>Terms and concepts in the specification comply with the following
       international standards: <list style="symbols">
           <t>ISO/IEC 10116 <xref target="ISO-IEC10116"/>,</t>
 
@@ -110,9 +126,9 @@
         </list></t>
     </section>
 
-    <section title="Definitions and Notations">
+    <section title="Definitions and Notations" anchor="section_defs_notation" >
       <t>The following terms and their corresponding definitions are used in
-      the standard.</t>
+      the specification.</t>
 
       <section title="Definitions">
         <t>Definitions <list style="empty">
@@ -178,7 +194,7 @@
       </section>
 
       <section title="Notations">
-        <t>The following notations are used in the standard: <list
+        <t>The following notations are used in the specification: <list
             style="hanging">
             <t hangText="      V*">the set of all binary vector-strings of a
             finite length (hereinafter referred to as the strings) including
@@ -230,8 +246,11 @@
           </list></t>
       </section>
     </section>
-<section title="Description of Kuznechik cipher ">
-<t>This section corresponds to "Kuznechik" cipher and is described in <xref target="RFC7801"/>.</t>
+<section title="Description of Kuznyechik cipher" anchor="section_kuznyechik" >
+  <t>This section corresponds to a section in <xref target="GOSTR3412-2015" />
+      which describes "Kuznyechik" cipher (a cipher with 128-bit block length
+    an 256 bytes key length). Translation of that section is provided as a
+    part of <xref target="RFC7801"/>.</t>
 </section>
 
 
@@ -350,8 +369,6 @@ K_(i+24)=K_(9-i), i = 1, 2, ..., 8.]]></artwork>
 
       <?rfc include='reference.RFC.7801.xml'?>
 
-      <?rfc include='reference.RFC.7836.xml'?>
-
       <reference anchor="GOSTR3412-2015">
         <front>
           <title>Information technology. Cryptographic data security. Block
@@ -420,11 +437,14 @@ K_(i+24)=K_(9-i), i = 1, 2, ..., 8.]]></artwork>
           <date year="2010"/>
         </front>
       </reference>
+
+      <?rfc include='reference.RFC.7836.xml'?>
+
     </references>
 
     <section title="Test Examples">
       <t>This section is for information only and is not a normative part of
-      the standard.</t>
+      the specification.</t>
 
       <section title="Transformation t">
         <figure>
@@ -601,6 +621,15 @@ G[K_2]...G[K_32](b_1, b_0) = (28da3b14, 76543210).]]></artwork>
     </section>
 
     <section title="Background">
+      <t>This specification is a translation of relevant parts of <xref
+	  target="GOSTR3412-2015" /> standard. The order of terms in both
+	  parts of <xref target="section_defs_notation" /> comes from original
+	  text. Empty section <xref target="section_kuznyechik" /> is a
+	  placeholder for a section from original standard describing
+	  Kuznyechik. If one combines <xref target="RFC7801" /> with this
+	  document, he will have complete translation of <xref
+	    target="GOSTR3412-2015" /> into English.</t>
+
       <t>Algoritmically Magma is a variation of block cipher defined in
         <xref target="RFC5830"/> (<xref target="GOST28147-89"/>)
 	with the following clarifications and minor modifications:
@@ -609,7 +638,7 @@ G[K_2]...G[K_32](b_1, b_0) = (28da3b14, 76543210).]]></artwork>
 	    (See Appendix C of <xref target="RFC7836" />);</t>
 	  <t>key is parsed as a single big-endian integer (compared to little-endian approach used in <xref target="GOST28147-89" />),
 	    which results in different subkey values being used;</t>
-	  <t>data are also parsed as single big-endian integer (instead of being parsed as little-endian integer).</t>
+	  <t>data bytes are also parsed as single big-endian integer (instead of being parsed as little-endian integer).</t>
 	</list>
       </t>
     </section>
