@@ -102,7 +102,7 @@
       during information transmission, processing and storage in
       computer-aided systems.</t>
 
-      <t>The cryptographic algorithms specified in this specification are
+      <t>The cryptographic algorithms defined in this specification are
 	designed both for hardware and software implementation. They comply
 	with modern cryptographic requirements, and put no restrictions on the
 	confidentiality level of the protected information.</t>
