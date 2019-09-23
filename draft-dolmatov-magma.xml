@@ -7,7 +7,7 @@
 <?rfc sortrefs="yes" ?>
 <?rfc compact="yes" ?>
 <?rfc subcompact="no" ?>
-<rfc category="info" docName="draft-dolmatov-magma-00" ipr="trust200902"
+<rfc category="info" docName="draft-dolmatov-magma-01" ipr="trust200902"
      updates="5830">
   <front>
     <title abbrev="Abbreviated Title">GOST R 34.12-2015: Block Cipher
@@ -70,9 +70,9 @@
 
     <abstract>
       <t>This document is intended to be a source of information about updated version of the block cipher with
-      block length of n=64 bits and key length k=256 bits (<xref target="RFC5830" />), which is also
+      block length of n=64 bits and key length k=256 bits (RFC5830), which is also
       referred as "Magma" and is described in the Russian Federal standard GOST R 34.12-2015, 
-      containing also the description of block cipher "Kuznechik" (<xref target="RFC7801" />).
+      containing also the description of block cipher "Kuznechik" (RFC7801).
       These algorithms are from the set of Russian cryptographic standard algorithms (called GOST algorithms).</t>
     </abstract>
   </front>
