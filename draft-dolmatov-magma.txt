@@ -10,7 +10,7 @@ Expires: March 27, 2020                               September 24, 2019
 
 
                 GOST R 34.12-2015: Block Cipher "Magma"
-                        draft-dolmatov-magma-01
+                        draft-dolmatov-magma-02
 
 Abstract
 
