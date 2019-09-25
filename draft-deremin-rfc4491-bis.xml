@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="US-ASCII"?>
 <!DOCTYPE rfc SYSTEM "rfc2629.dtd">
 <?xml-stylesheet type='text/xsl' href='rfc2629.xslt' ?>
+<?rfc comments="yes" ?>
+<?rfc inline="yes" ?>
 <?rfc strict="yes" ?>
 <?rfc toc="yes"?>
 <?rfc symrefs="yes"?>
@@ -8,20 +10,20 @@
 <?rfc compact="yes" ?>
 <?rfc subcompact="no" ?>
 <rfc category="info" docName="draft-deremin-rfc4491-bis-00" ipr="trust200902"
-     updates="4491 3279">
+  updates="3279,4491">
   <front>
-    <title abbrev="PKIX: GOST R 34.10-2012 and GOST R 34.11-2012">Using GOST R 34.10-2012 and GOST R 34.11-2012 algorithms with the Internet X.509 Public Key Infrastructure</title>
+    <title abbrev="PKIX: GOST R 34.10-2012, GOST R 34.11-2012">Using GOST R 34.10-2012 and GOST R 34.11-2012 algorithms with the Internet X.509 Public Key Infrastructure</title>
 
     <author fullname="Dmitry Eremin-Solenikov" initials="D." surname="Eremin-Solenikov">
       <organization>Mentor Graphics (Ireland) Ltd.</organization>
       <address>
-	<postal>
-	  <street>Pevchesky lane, 12</street>
+        <postal>
+          <street>Pevchesky lane, 12</street>
           <city>Saint-Petersburg</city>
           <region/>
           <code>197046</code>
           <country>Russian Federation</country>
-	</postal>
+        </postal>
         <email>dbaryshkov@gmail.com</email>
       </address>
     </author>
@@ -36,39 +38,180 @@
     <keyword>PKI</keyword>
 
     <abstract>
-      <t>This document supplements RFC 3279 and RFC 4491. It describes encoding
-	formats, identifiers, and parameter formats for the algorithms GOST R
-	34.10-2012 and GOST R 34.11-2012 for use in Internet X.509 Public Key
-	Infrastructure (PKI).</t>
+      <t>This document updates RFC 3279 and RFC 4491. It describes encoding
+        formats, identifiers, and parameter formats for the algorithms GOST R
+        34.10-2012 and GOST R 34.11-2012 for use in Internet X.509 Public Key
+        Infrastructure (PKI).</t>
     </abstract>
   </front>
 
   <middle>
     <section title="Introduction">
       <t>This document supplements <xref target="RFC3279"/>.  It describes the
-	conventions for using the <xref target="GOSTR3410-2012">GOST R 34.10-2012</xref> (see <xref target="RFC7091" />) signature algorithms
-	and <xref target="GOSTR3411-2012"> GOST R 34.11-2012</xref> (see <xref target="RFC6986" />)
-	one-way hash function in the Internet X.509 Public Key Infrastructure
-	(PKI) <xref target="RFC5280" />.</t>
+        conventions for using the <xref target="GOSTR3410-2012">GOST R
+          34.10-2012</xref> (see <xref target="RFC7091" />) signature
+        algorithms and <xref target="GOSTR3411-2012"> GOST R 34.11-2012</xref>
+        (see <xref target="RFC6986" />) one-way hash function in the Internet
+        X.509 Public Key Infrastructure (PKI) <xref target="RFC5280" />.</t>
 
       <t>This specification defines the contents of the signatureAlgorithm,
-	signatureValue, signature, and subjectPublicKeyInfo fields within X.509
-	Certificates and CRLs.  For each algorithm, the appropriate
-	alternatives for the keyUsage certificate extension are provided.</t>
+        signatureValue, signature, and subjectPublicKeyInfo fields within X.509
+        Certificates and CRLs.  For each algorithm, the appropriate
+        alternatives for the keyUsage certificate extension are provided.</t>
 
-      <section title="Requirements Language"> <t>The key words "MUST", "MUST
-	  NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT",
-	  "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be
-	  interpreted as described in <xref target="RFC2119" />.</t>
+      <section title="Requirements Language">
+        <t>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
+          "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this
+          document are to be interpreted as described in <xref target="RFC2119"
+            />.</t>
       </section>
     </section>
 
-    <section title="Algorithm support">
-      <t>This sections describes one-way hash functions and digital signature
-	algorithms that may be used to sign certificates and CRLs, identifies
-	object identifiers (OIDs) and provides ASN.1 encoding for public keys
-	contained in a certificate.</t>
+    <section title="Signature algorithm support">
+      <t>Conforming CAs MUST use GOST R 34.10-2012 signature algorithm with
+        GOST R 34.11-2012 one-way hash function algorithm to sign certificates
+        and CRLs. It may use keys length of either 256 bits or 512 bits.</t>
+
+      <t>The ASN.1 object identifier used to identify GOST R 34.10-2012
+        signature algorithm with 256-bit key length and GOST R 34.11-2012 hash
+        function with 256-bit hash code is:</t>
+      <t><figure><artwork><![CDATA[id-tc26-signwithdigest-gost3410-12-256 OBJECT IDENTIFIER ::=
+    { iso(1) member-body(2) ru(643) rosstandart(7) tc26(1)
+        algorithms(1) signwithdigest(3) gost3410-12-256(2)}]]>.</artwork></figure></t>
+
+      <t>The ASN.1 object identifier used to identify GOST R 34.10-2012
+        signature algorithm with 512-bit key length and GOST R 34.11-2012 hash
+        function with 512-bit hash code is:</t>
+
+      <t><figure><artwork><![CDATA[id-tc26-signwithdigest-gost3410-12-512 OBJECT IDENTIFIER ::=
+    { iso(1) member-body(2) ru(643) rosstandart(7) tc26(1)
+        algorithms(1) signwithdigest(3) gost3410-12-512(3)}]]>.</artwork></figure></t>
+
+      <t>When either of these OID are used as the algorithm field in an
+        AlgorithmIdentifier structure, the encoding MUST omit the parameters
+        field.</t>
     </section>
+
+    <section title="Hash functions support" anchor="streebog">
+      <t>The ASN.1 object identifier used to identify GOST R 34.11-2012 hash
+        function with 256-bit hash code is:</t>
+      <t><figure><artwork><![CDATA[id-tc26-digest-gost3411-12-256 OBJECT IDENTIFIER ::=
+    { iso(1) member-body(2) ru(643) rosstandart(7) tc26(1)
+        algorithms(1) digest(2) gost3411-12-256(2)}]]>.</artwork></figure></t>
+
+      <t>The ASN.1 object identifier used to identify GOST R 34.11-2012 hash
+        function with 512-bit hash code is:</t>
+
+      <t><figure><artwork><![CDATA[id-tc26-digest-gost3411-12-512 OBJECT IDENTIFIER ::=
+    { iso(1) member-body(2) ru(643) rosstandart(7) tc26(1)
+        algorithms(1) digest(2) gost3411-12-512(3)}]]>.</artwork></figure></t>
+
+      <t>When either of these OID are used as the algorithm field in an
+        AlgorithmIdentifier structure, the encoding MUST omit the parameters
+        field.</t>
+    </section>
+
+    <section title="GOST R 34.10-2012 Public keys">
+      <t>GOST R 34.10-2012 public keys with 256 bits key length are identified
+        by the following OID:</t>
+
+      <t><figure><artwork><![CDATA[id-tc26-gost3410-12-256 OBJECT IDENTIFIER ::=
+    { iso(1) member-body(2) ru(643) rosstandart(7) tc26(1)
+        algorithms(1) sign(1) gost3410-12-256(1)}]]>.</artwork></figure></t>
+
+      <t>GOST R 34.10-2012 public keys with 512 bits key length are identified
+        by the following OID:</t>
+
+      <t><figure><artwork><![CDATA[id-tc26-gost3410-12-512 OBJECT IDENTIFIER ::=
+    { iso(1) member-body(2) ru(643) rosstandart(7) tc26(1)
+        algorithms(1) sign(1) gost3410-12-512(2)}]]>.</artwork></figure></t>
+
+      <section title="Public Key parameters">
+
+        <t>When either of these identifiers appear as algorithm field in
+          SubjectPublicKeyInfo.algorithm.algorithm field, parameters field MUST
+          have the following structure:
+        </t>
+
+        <t><figure><artwork><![CDATA[GostR3410-2012-PublicKeyParameters ::= SEQUENCE
+    {
+        publicKeyParamSet OBJECT IDENTIFIER,
+        digestParamSet OBJECT IDENTIFIER OPTIONAL
+    }]]></artwork></figure>.</t>
+        <t>where:
+          <list style="symbols">
+            <t>publicKeyParamSet - public key parameters identifier for GOST R 34.10-2012 (see Sections 5.1 and 5.2 of <xref target="RFC7836"/>) or GOST R 34.10-2001 (see Section 8.4 of <xref target="RFC4357"/>) parameters.</t>
+            <t>digestParamSet - parameter identifier for corresponding GOST R 34.11-2012 (See <xref target="streebog" />).</t>
+          </list>
+        </t>
+
+        <t>The field digestParamSet:
+          <list style="symbols">
+            <t>SHOULD be omited if GOST R 34.10-2012 signature algorithm is used with 512-bit key length;</t>
+            <t>MUST be present and must be equal to id-tc26-digest-gost3411-12-256 id one of the following values is used as publicKeyParamSet:
+              <list style="symbols">
+                <t><spanx style="verb">id-GostR3410-2001-CryptoPro-A-ParamSet</spanx>,</t>
+                <t><spanx style="verb">id-GostR3410-2001-CryptoPro-B-ParamSet</spanx>,</t>
+                <t><spanx style="verb">id-GostR3410-2001-CryptoPro-C-ParamSet</spanx>,</t>
+                <t><spanx style="verb">id-GostR3410-2001-CryptoPro-XchA-ParamSet</spanx>,</t>
+                <t><spanx style="verb">id-GostR3410-2001-CryptoPro-XchB-ParamSet</spanx>;</t>
+            </list></t>
+            <t>SHOULD be omited if publicKeyParamSet is equal to:
+              <list style="symbols">
+                <t><spanx style="verb">id-tc26-gost-3410-2012-256-paramSetA</spanx>;</t>
+            </list></t>
+            <t>MUST be omited if one of the following values is used as publicKeyParamSet:
+              <list style="symbols">
+                <t><spanx style="verb">id-tc26-gost-3410-2012-256-paramSetB</spanx>,</t>
+                <t><spanx style="verb">id-tc26-gost-3410-2012-256-paramSetC</spanx>,</t>
+                <t><spanx style="verb">id-tc26-gost-3410-2012-256-paramSetD</spanx>.</t>
+            </list></t>
+        </list></t>
+      </section>
+      <section title="Public Key encoding">
+        <t>The GOST R 34.10-2012 public key MUST be ASN.1 DER encoded as an
+          OCTET STRING. This encoding SHALL be used as the contents (i.e., the
+          value) of the subjectPublicKey component (a BIT STRING) of
+          SubjectPublicKeyInfo data element.</t>
+        <t><figure><artwork>GostR3410-2012-256-PublicKey ::= OCTET STRING (64),
+GostR3410-2012-512-PublicKey ::= OCTET STRING (128).</artwork></figure></t>
+        <t><spanx style="verb">GostR3410-2012-256-PublicKey</spanx> MUST
+          contain 64 octets, where the first 32 octets contain the
+          little-endian representation of <spanx style="verb">x</spanx> and the
+          second 32 octets contains the little-endian representation of <spanx
+            style="verb">y</spanx>.</t>
+        <t><spanx style="verb">GostR3410-2012-512-PublicKey</spanx> MUST
+          contain 128 octets, where the first 64 octets contain the
+          little-endian representation of <spanx style="verb">x</spanx> and the
+          second 64 octets contains the little-endian representation of <spanx
+            style="verb">y</spanx>.</t>
+      </section>
+      <section title="Key usage extension">
+        <t>If the KeyUsage extension is present in a certificate with GOST R 34.10-2012 public key, the following values MAY be present:
+          <list style="symbols">
+            <t>digitalSignature,</t>
+            <t>contentCommitment,</t>
+            <t>keyAgreement,</t>
+            <t>keyCertSign,</t>
+            <t>cRLSign,</t>
+            <t>encipherOnly,</t>
+            <t>decipherOnly.</t>
+        </list></t>
+        <t>If the key is going to be used for key agreement, flag keyAgreement
+          MUST be present in KeyUsage extension with encipherOnly and
+          decipherOnly flags being optional. However flags encipherOnly and
+          decipherOnly flags MUST NOT be present simultaneously.</t>
+      </section>
+    </section>
+
+    <section anchor="IANA" title="IANA Considerations">
+      <t>This memo includes no request to IANA.</t>
+    </section>
+
+    <section title="Security Considerations">
+      <t><cref anchor="Q1" source="DES">TBD</cref></t>
+    </section>
+
   </middle>
 
   <back>
@@ -78,39 +221,118 @@
       <?rfc include='reference.RFC.5280.xml'?>
       <?rfc include='reference.RFC.3279.xml'?>
       <?rfc include='reference.RFC.2119.xml'?>
+      <?rfc include='reference.RFC.4357.xml'?>
+      <?rfc include='reference.RFC.7836.xml'?>
     </references>
     <references title="Informative References">
       <reference anchor="GOSTR3410-2012">
-	<front>
-	  <title>
-	    Information technology. Cryptographic data security. Signature and verification
-	    processes of [electronic] digital signature
-	  </title>
-	  <author>
-	    <organization>
-	      Federal Agency on Technical Regulating and Metrology
-	    </organization>
-	  </author>
-	  <date year="2012"/>
-	</front>
-	<seriesInfo name="GOST R" value="34.10-2012"/>
+        <front>
+          <title>
+            Information technology. Cryptographic data security. Signature and verification
+            processes of [electronic] digital signature
+          </title>
+          <author>
+            <organization>
+              Federal Agency on Technical Regulating and Metrology
+            </organization>
+          </author>
+          <date year="2012"/>
+        </front>
+        <seriesInfo name="GOST R" value="34.10-2012"/>
       </reference>
 
       <reference anchor="GOSTR3411-2012">
-	<front>
-	  <title>
-	    Information technology. Cryptographic Data Security. Hashing function
-	  </title>
-	  <author>
-	    <organization>
-	      Federal Agency on Technical Regulating and Metrology
-	    </organization>
-	  </author>
-	  <date year="2012"/>
-	</front>
-	<seriesInfo name="GOST R" value="34.11-2012"/>
+        <front>
+          <title>
+            Information technology. Cryptographic Data Security. Hashing function
+          </title>
+          <author>
+            <organization>
+              Federal Agency on Technical Regulating and Metrology
+            </organization>
+          </author>
+          <date year="2012"/>
+        </front>
+        <seriesInfo name="GOST R" value="34.11-2012"/>
       </reference>
     </references>
+
+    <section title="Public key parameters">
+      <t><cref anchor="Q2" source="DES">Possibly describe td-tc26-gost-3410-2012-256-paramSetB/C/D parameters?</cref></t>
+    </section>
+
+    <section title="Test Examples">
+      <section title="Certificate with GOST R 34.10-2001 Test parameters">
+        <t><figure><preamble>This certificate uses private and public keys from Section 7.1 of <xref target="RFC7091" />.</preamble>
+            <artwork><![CDATA[
+-----BEGIN CERTIFICATE-----
+MIIBGDCBxqADAgECAgEKMAoGCCqFAwcBAQMCMBIxEDAOBgNVBAMTB0V4YW1wbGUw
+IBcNMDEwMTAxMDAwMDAwWhgPMjA1MDEyMzEwMDAwMDBaMBIxEDAOBgNVBAMTB0V4
+YW1wbGUwZjAfBggqhQMHAQEBATATBgcqhQMCAiMABggqhQMHAQECAgNDAARAC9hv
+5djbiWaPeJtOHbqFhcVQi0XsW1nYkG3bcOJJK3/ad/+HGhD73ydm0pPF0WSvuzx7
+lzpByIXRHXDWibTxJjAKBggqhQMHAQEDAgNBAEOGDlxBQFcTPHxIEpISzpCT8mas
+s1FbiDokJqzGC2u+Qaoo0vGrFIKAzZ7Vb+2kGXQFNVSkJ2e4OtBD/TncBJM=
+-----END CERTIFICATE-----
+
+  0 280: SEQUENCE {
+  4 198:   SEQUENCE {
+  7   3:     [0] {
+  9   1:       INTEGER 2
+       :       }
+ 12   1:     INTEGER 10
+ 15  10:     SEQUENCE {
+ 17   8:       OBJECT IDENTIFIER '1 2 643 7 1 1 3 2'
+       :       }
+ 27  18:     SEQUENCE {
+ 29  16:       SET {
+ 31  14:         SEQUENCE {
+ 33   3:           OBJECT IDENTIFIER commonName (2 5 4 3)
+ 38   7:           PrintableString 'Example'
+       :           }
+       :         }
+       :       }
+ 47  32:     SEQUENCE {
+ 49  13:       UTCTime 01/01/2001 00:00:00 GMT
+ 64  15:       GeneralizedTime 31/12/2050 00:00:00 GMT
+       :       }
+ 81  18:     SEQUENCE {
+ 83  16:       SET {
+ 85  14:         SEQUENCE {
+ 87   3:           OBJECT IDENTIFIER commonName (2 5 4 3)
+ 92   7:           PrintableString 'Example'
+       :           }
+       :         }
+       :       }
+101 102:     SEQUENCE {
+103  31:       SEQUENCE {
+105   8:         OBJECT IDENTIFIER '1 2 643 7 1 1 1 1'
+115  19:         SEQUENCE {
+117   7:           OBJECT IDENTIFIER testSignParams (1 2 643 2 2 35 0)
+126   8:           OBJECT IDENTIFIER '1 2 643 7 1 1 2 2'
+       :           }
+       :         }
+136  67:       BIT STRING, encapsulates {
+139  64:         OCTET STRING
+       :           0B D8 6F E5 D8 DB 89 66 8F 78 9B 4E 1D BA 85 85
+       :           C5 50 8B 45 EC 5B 59 D8 90 6D DB 70 E2 49 2B 7F
+       :           DA 77 FF 87 1A 10 FB DF 27 66 D2 93 C5 D1 64 AF
+       :           BB 3C 7B 97 3A 41 C8 85 D1 1D 70 D6 89 B4 F1 26
+       :         }
+       :       }
+       :     }
+205  10:   SEQUENCE {
+207   8:     OBJECT IDENTIFIER '1 2 643 7 1 1 3 2'
+       :     }
+217  65:   BIT STRING
+       :     43 86 0E 5C 41 40 57 13 3C 7C 48 12 92 12 CE 90
+       :     93 F2 66 AC B3 51 5B 88 3A 24 26 AC C6 0B 6B BE
+       :     41 AA 28 D2 F1 AB 14 82 80 CD 9E D5 6F ED A4 19
+       :     74 05 35 54 A4 27 67 B8 3A D0 43 FD 39 DC 04 93
+       :   }
+              ]]></artwork></figure></t>
+
+      </section>
+    </section>
   </back>
 
 </rfc>
