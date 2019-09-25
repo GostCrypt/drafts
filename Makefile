@@ -1,4 +1,6 @@
-DRAFTS = draft-dolmatov-magma.xml
+DRAFTS = \
+	 draft-dolmatov-magma.xml \
+	 draft-deremin-rfc4491-bis.xml
 
 OUT = $(DRAFTS:.xml=.html) $(DRAFTS:.xml=.txt) $(DRAFTS:.xml=.pdf)
 

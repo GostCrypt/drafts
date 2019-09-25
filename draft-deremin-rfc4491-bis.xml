@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+<!DOCTYPE rfc SYSTEM "rfc2629.dtd">
+<?xml-stylesheet type='text/xsl' href='rfc2629.xslt' ?>
+<?rfc strict="yes" ?>
+<?rfc toc="yes"?>
+<?rfc symrefs="yes"?>
+<?rfc sortrefs="yes" ?>
+<?rfc compact="yes" ?>
+<?rfc subcompact="no" ?>
+<rfc category="info" docName="draft-deremin-rfc4491-bis-00" ipr="trust200902"
+     updates="4491 3279">
+  <front>
+    <title abbrev="PKIX: GOST R 34.10-2012 and GOST R 34.11-2012">Using GOST R 34.10-2012 and GOST R 34.11-2012 algorithms with the Internet X.509 Public Key Infrastructure</title>
+
+    <author fullname="Dmitry Eremin-Solenikov" initials="D." surname="Eremin-Solenikov">
+      <organization>Mentor Graphics (Ireland) Ltd.</organization>
+      <address>
+	<postal>
+	  <street>Pevchesky lane, 12</street>
+          <city>Saint-Petersburg</city>
+          <region/>
+          <code>197046</code>
+          <country>Russian Federation</country>
+	</postal>
+        <email>dbaryshkov@gmail.com</email>
+      </address>
+    </author>
+
+    <date month="" year="2019"/>
+
+    <area>Security</area>
+
+    <workgroup>Limited Additional Mechanisms for PKIX and SMIME</workgroup>
+
+    <keyword>GOST</keyword>
+    <keyword>PKI</keyword>
+
+    <abstract>
+      <t>This document supplements RFC 3279 and RFC 4491. It describes encoding
+	formats, identifiers, and parameter formats for the algorithms GOST R
+	34.10-2012 and GOST R 34.11-2012 for use in Internet X.509 Public Key
+	Infrastructure (PKI).</t>
+    </abstract>
+  </front>
+
+  <middle>
+    <section title="Introduction">
+      <t>This document supplements <xref target="RFC3279"/>.  It describes the
+	conventions for using the <xref target="GOSTR3410-2012">GOST R 34.10-2012</xref> (see <xref target="RFC7091" />) signature algorithms
+	and <xref target="GOSTR3411-2012"> GOST R 34.11-2012</xref> (see <xref target="RFC6986" />)
+	one-way hash function in the Internet X.509 Public Key Infrastructure
+	(PKI) <xref target="RFC5280" />.</t>
+
+      <t>This specification defines the contents of the signatureAlgorithm,
+	signatureValue, signature, and subjectPublicKeyInfo fields within X.509
+	Certificates and CRLs.  For each algorithm, the appropriate
+	alternatives for the keyUsage certificate extension are provided.</t>
+
+      <section title="Requirements Language"> <t>The key words "MUST", "MUST
+	  NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT",
+	  "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be
+	  interpreted as described in <xref target="RFC2119" />.</t>
+      </section>
+    </section>
+
+    <section title="Algorithm support">
+      <t>This sections describes one-way hash functions and digital signature
+	algorithms that may be used to sign certificates and CRLs, identifies
+	object identifiers (OIDs) and provides ASN.1 encoding for public keys
+	contained in a certificate.</t>
+    </section>
+  </middle>
+
+  <back>
+    <references title="Normative References">
+      <?rfc include='reference.RFC.7091.xml'?>
+      <?rfc include='reference.RFC.6986.xml'?>
+      <?rfc include='reference.RFC.5280.xml'?>
+      <?rfc include='reference.RFC.3279.xml'?>
+      <?rfc include='reference.RFC.2119.xml'?>
+    </references>
+    <references title="Informative References">
+      <reference anchor="GOSTR3410-2012">
+	<front>
+	  <title>
+	    Information technology. Cryptographic data security. Signature and verification
+	    processes of [electronic] digital signature
+	  </title>
+	  <author>
+	    <organization>
+	      Federal Agency on Technical Regulating and Metrology
+	    </organization>
+	  </author>
+	  <date year="2012"/>
+	</front>
+	<seriesInfo name="GOST R" value="34.10-2012"/>
+      </reference>
+
+      <reference anchor="GOSTR3411-2012">
+	<front>
+	  <title>
+	    Information technology. Cryptographic Data Security. Hashing function
+	  </title>
+	  <author>
+	    <organization>
+	      Federal Agency on Technical Regulating and Metrology
+	    </organization>
+	  </author>
+	  <date year="2012"/>
+	</front>
+	<seriesInfo name="GOST R" value="34.11-2012"/>
+      </reference>
+    </references>
+  </back>
+
+</rfc>
+
