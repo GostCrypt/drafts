@@ -204,6 +204,39 @@ GostR3410-2012-512-PublicKey ::= OCTET STRING (128).</artwork></figure></t>
       </section>
     </section>
 
+    <section title="Object Identifiers">
+      <t>This section defines additinal object identifiers (OIDs) for use in
+        qualified certificates for checking digital signatures.</t>
+      <section title="Distinguished Name additions">
+        <t><figure>
+            <preamble>OGRN is the main state registration number of juridical entities.</preamble>
+            <artwork>OGRN ::= NUMERIC STRING 13</artwork>
+            <postamble>Corresponding OID is <spanx style="verb">1.2.643.100.1</spanx>.</postamble>
+        </figure></t>
+        <t><figure>
+            <preamble>SNILS is the individual insurance account number.</preamble>
+            <artwork>SNILS ::= NUMERIC STRING 11</artwork>
+            <postamble>Corresponding OID is <spanx style="verb">1.2.643.100.3</spanx>.</postamble>
+        </figure></t>
+        <t><figure>
+            <preamble>INN is the VAT identification number.</preamble>
+            <artwork>OGRN ::= NUMERIC STRING 12</artwork>
+            <postamble>Corresponding OID is <spanx style="verb">1.2.643.3.131.1.1</spanx>.</postamble>
+        </figure></t>
+      </section>
+      <section title="Certificate policies">
+        <t>Digital signature classes.</t>
+        <t><list style="symbols">
+            <t><spanx style="verb">1.2.643.113.1</spanx> - KC1 class,</t>
+            <t><spanx style="verb">1.2.643.113.2</spanx> - KC2 class,</t>
+            <t><spanx style="verb">1.2.643.113.3</spanx> - KC3 class,</t>
+            <t><spanx style="verb">1.2.643.113.4</spanx> - KB1 class,</t>
+            <t><spanx style="verb">1.2.643.113.5</spanx> - KB2 class,</t>
+            <t><spanx style="verb">1.2.643.113.6</spanx> - KA1 class.</t>
+        </list></t>
+      </section>
+    </section>
+
     <section anchor="IANA" title="IANA Considerations">
       <t>This memo includes no request to IANA.</t>
     </section>
