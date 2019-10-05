@@ -204,7 +204,7 @@ GostR3410-2012-512-PublicKey ::= OCTET STRING (128).</artwork></figure></t>
       </section>
     </section>
 
-    <section title="Object Identifiers">
+    <section title="Qualified certificates extensions">
       <t>This section defines additinal object identifiers (OIDs) for use in
         qualified certificates for checking digital signatures.</t>
       <section title="Distinguished Name additions">
@@ -225,15 +225,41 @@ GostR3410-2012-512-PublicKey ::= OCTET STRING (128).</artwork></figure></t>
         </figure></t>
       </section>
       <section title="Certificate policies">
-        <t>Digital signature classes.</t>
-        <t><list style="symbols">
-            <t><spanx style="verb">1.2.643.113.1</spanx> - KC1 class,</t>
-            <t><spanx style="verb">1.2.643.113.2</spanx> - KC2 class,</t>
-            <t><spanx style="verb">1.2.643.113.3</spanx> - KC3 class,</t>
-            <t><spanx style="verb">1.2.643.113.4</spanx> - KB1 class,</t>
-            <t><spanx style="verb">1.2.643.113.5</spanx> - KB2 class,</t>
-            <t><spanx style="verb">1.2.643.113.6</spanx> - KA1 class.</t>
+        <t>FSB has defined several classes of cryptographic tokens, depending
+          on their ability to resist different kinds of attacks. Depending on
+          the class of cryptographic token used by certificate owner the
+          following OIDs must be included into certificate policies.
+          Certificate should include OIDs starting from the lowest one (KC1) up
+          to the strongest applicable.
+
+          <list style="symbols">
+            <t><spanx style="verb">1.2.643.113.1</spanx> - class KC1,</t>
+            <t><spanx style="verb">1.2.643.113.2</spanx> - class KC2,</t>
+            <t><spanx style="verb">1.2.643.113.3</spanx> - class KC3,</t>
+            <t><spanx style="verb">1.2.643.113.4</spanx> - class KB1,</t>
+            <t><spanx style="verb">1.2.643.113.5</spanx> - class KB2,</t>
+            <t><spanx style="verb">1.2.643.113.6</spanx> - class KA1.</t>
         </list></t>
+      </section>
+      <section title="Subject Sign Tool">
+        <t><figure><preamble>To denote the token or software type used by certificate owner following non-critical <spanx style="verb">SubjectSignTool</spanx> extension with OID <spanx style="verb">1.2.643.100.111</spanx> should be included. It is defined as</preamble>
+            <artwork>SubjectSignTool ::= UTF8String SIZE(1..200) .</artwork>
+        </figure></t>
+      </section>
+      <section title="Issuer Sign Tool">
+        <t><figure><preamble>To denote the tools used to generate keypair and tools used by CA to sign certificate following non-critical <spanx style="verb">IssuerSignTool</spanx> extension with OID <spanx style="verb">1.2.643.100.112</spanx> should be included. It is defined as</preamble>
+            <artwork>IssuerSignTool ::= SEQUENCE {
+  signTool     UTF8String SIZE(1..200),
+  cATool       UTF8String SIZE(1..200),
+  signToolCert UTF8String SIZE(1..100),
+  cAToolCert   UTF8String SIZE(1..100) } .</artwork>
+        </figure></t>
+        <t>Here <spanx style="verb">signTool</spanx> identifies tools used to
+          create keypair, <spanx style="verb">cATool</spanx> identifies tools
+          used by certificate authority and <spanx
+            style="verb">signToolCert</spanx> and <spanx
+            style="verb">cAToolCert</spanx> contain the notice of respective
+          tools conformance to Russian federal law on digital signature.</t>
       </section>
     </section>
 
