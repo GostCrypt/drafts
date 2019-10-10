@@ -238,7 +238,7 @@ Internet-Draft   GOST R 34.12-2015: Block Cipher "Magma"  September 2019
       non-negative integer; substrings and string components are
       enumerated from right to left starting from zero,
 
-      U[*]W  direct (Cartesian) product of two set U and W,
+      U[*]W  direct (Cartesian) product of two sets U and W,
 
         |A|  the number of components (the length) of a string A
       belonging to V* (if A is an empty string, then |A| = 0),
@@ -248,14 +248,14 @@ Internet-Draft   GOST R 34.12-2015: Block Cipher "Magma"  September 2019
       V_|A| is equal to A and the right substring from V_|B| is equal to
       B,
 
-   A<<<_11  cyclic rotation of string A belonging to V_32 by 11
-      components in the direction of components having greater indices
+    A<<<_11  cyclic rotation of string A belonging to V_32 by 11
+      components in the direction of components having greater indices,
 
     Z_(2^n)  ring of residues modulo 2^n,
 
       (xor)  exclusive-or of the two binary strings of the same length,
 
-   [+]  addition in the ring Z_(2^32)
+        [+]  addition in the ring Z_(2^32)
 
    Vec_s: Z_(2^s) -> V_s  bijective mapping which maps an element from
       ring Z_(2^s) into its binary representation, i.e., for an element

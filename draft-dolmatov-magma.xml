@@ -204,7 +204,7 @@
             components are enumerated from right to left starting from
             zero,</t>
 
-            <t hangText="   U[*]W">direct (Cartesian) product of two set U and
+            <t hangText="   U[*]W">direct (Cartesian) product of two sets U and
             W,</t>
 
             <t hangText="     |A|">the number of components (the length) of a
@@ -216,16 +216,16 @@
             substring from V_|A| is equal to A and the right substring from
             V_|B| is equal to B,</t>
 
-            <t hangText="A&lt;&lt;&lt;_11">cyclic rotation of string A
+            <t hangText=" A&lt;&lt;&lt;_11">cyclic rotation of string A
             belonging to V_32 by 11 components in the direction of components
-            having greater indices</t>
+            having greater indices,</t>
 
             <t hangText=" Z_(2^n)">ring of residues modulo 2^n,</t>
 
             <t hangText="   (xor)">exclusive-or of the two binary strings of
             the same length,</t>
 
-            <t hangText="[+]">addition in the ring Z_(2^32)</t>
+            <t hangText="     [+]">addition in the ring Z_(2^32)</t>
 
             <t hangText="Vec_s: Z_(2^s) -&gt; V_s">bijective mapping which
             maps an element from ring Z_(2^s) into its binary representation,
