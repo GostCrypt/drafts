@@ -74,7 +74,7 @@
 	RFC 5830.  Since its publication, an update to the Russian Federal
 	standard was published as GOST R 34.12-2015 that includes the
 	specification of the block cipher known as "Kuznyechik" which has been
-	described in RFC7801.</t>
+	described in RFC 7801.</t>
 
       <t>GOST R 34.12-2015 also includes an updated version of the block
 	cipher with block length of n=64 bits and key length k=256 bits, which
@@ -82,7 +82,7 @@
 	of information about the updated version of 64-bit cipher. It may
 	facilitate the use of the block cipher in Internet applications by
 	providing information for developers and users of GOST 64-bit
-	cipherwith the revised version of the cipherfor encryption and
+	cipher with the revised version of the cipher for encryption and
 	decryption.</t>
 
       <t>Unlike RFC 5830 (GOST 28147-89) and like RFC 7801 this specification
