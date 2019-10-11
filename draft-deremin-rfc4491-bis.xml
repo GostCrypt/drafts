@@ -385,7 +385,7 @@ GostR3410-2012-512-PublicKey ::= OCTET STRING (128).</artwork></figure></t>
 
     <section title="Public key parameters" anchor="pkparamsBCD">
       <t>Here we define three new object identifiers for three existing public key parameter sets
-        defined in <xref target="RFC4357" />. These object identifiers MUST be used with with 
+        defined in <xref target="RFC4357" />. These object identifiers MUST be used with 
         GOST R 34.10-2012 public keys only.</t>
       <t><figure><artwork><![CDATA[id-tc26-gost-3410-2012-256-paramSetB OBJECT IDENTIFIER ::=
     { iso(1) member-body(2) ru(643) rosstandart(7) tc26(1)
