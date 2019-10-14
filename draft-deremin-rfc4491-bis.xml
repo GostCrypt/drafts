@@ -27,6 +27,20 @@
         <email>dbaryshkov@gmail.com</email>
       </address>
     </author>
+    
+    <author fullname="Vasily Nikolaev" initials="V." surname="Nikolaev">
+            <organization>CryptoPro</organization>
+            <address>
+                <postal>
+                    <street>18, Suschevsky val </street>
+                    <city>Moscow</city>
+                    <code>127018</code>
+                    <country>Russian Federation</country>
+                </postal>
+                <phone>+7 (495) 995-48-20</phone>
+                <email>nikolaev@cryptopro.ru</email>
+            </address>
+        </author>
 
     <date month="" year="2019"/>
 
@@ -50,8 +64,8 @@
       <t>This document supplements <xref target="RFC3279"/>.  It describes the
         conventions for using the <xref target="GOSTR3410-2012">GOST R
           34.10-2012</xref> (see <xref target="RFC7091" />) signature
-        algorithms and <xref target="GOSTR3411-2012"> GOST R 34.11-2012</xref>
-        (see <xref target="RFC6986" />) one-way hash function in the Internet
+        algorithm and <xref target="GOSTR3411-2012"> GOST R 34.11-2012</xref>
+        (see <xref target="RFC6986" />) hash function in the Internet
         X.509 Public Key Infrastructure (PKI) <xref target="RFC5280" />.</t>
 
       <t>This specification defines the contents of the signatureAlgorithm,
@@ -68,9 +82,10 @@
     </section>
 
     <section title="Signature algorithm support">
-      <t>Conforming CAs MUST use GOST R 34.10-2012 signature algorithm with
-        GOST R 34.11-2012 one-way hash function algorithm to sign certificates
-        and CRLs. It may use keys length of either 256 bits or 512 bits.</t>
+      <t>Conforming CAs MAY use GOST R 34.10-2012 signature algorithm to sign 
+        certificates and CRLs. This signature algorithm MUST always be used 
+        with GOST R 34.11-2012 hash function. It may use keys length of either 
+        256 bits or 512 bits.</t>
 
       <t>The ASN.1 object identifier used to identify GOST R 34.10-2012
         signature algorithm with 256-bit key length and GOST R 34.11-2012 hash
@@ -78,6 +93,12 @@
       <t><figure><artwork><![CDATA[id-tc26-signwithdigest-gost3410-12-256 OBJECT IDENTIFIER ::=
     { iso(1) member-body(2) ru(643) rosstandart(7) tc26(1)
         algorithms(1) signwithdigest(3) gost3410-12-256(2)}]]>.</artwork></figure></t>
+      
+      <t>GOST R 34.10-2012 signature algorithm with 256-bit key length generates a digital
+        signature in the form of two 256-bit numbers, r and s.  Its octet
+        string representation consists of 64 octets, where the first 32
+        octets contain the big-endian representation of s and the second 32
+        octets contain the big-endian representation of r.</t>
 
       <t>The ASN.1 object identifier used to identify GOST R 34.10-2012
         signature algorithm with 512-bit key length and GOST R 34.11-2012 hash
@@ -86,10 +107,29 @@
       <t><figure><artwork><![CDATA[id-tc26-signwithdigest-gost3410-12-512 OBJECT IDENTIFIER ::=
     { iso(1) member-body(2) ru(643) rosstandart(7) tc26(1)
         algorithms(1) signwithdigest(3) gost3410-12-512(3)}]]>.</artwork></figure></t>
+      
+      <t>GOST R 34.10-2012 signature algorithm with 512-bit key length generates a digital
+        signature in the form of two 512-bit numbers, r and s.  Its octet
+        string representation consists of 128 octets, where the first 64
+        octets contain the big-endian representation of s and the second 64
+        octets contain the big-endian representation of r.</t>
 
       <t>When either of these OID are used as the algorithm field in an
         AlgorithmIdentifier structure, the encoding MUST omit the parameters
         field.</t>
+     
+      <t>The described definition of a signature value is directly usable in CMS <xref target="RFC3852"/>,
+        where such values are represented as octet strings.  However,
+        signature values in certificates and CRLs <xref target="RFC3280"/> are represented
+        as bit strings, and thus the octet string representation must be
+        converted.</t>
+
+      <t>To convert an octet string signature value to a bit string, the most
+        significant bit of the first octet of the signature value SHALL
+        become the first bit of the bit string, and so on through the least
+        significant bit of the last octet of the signature value, which SHALL
+        become the last bit of the bit string.</t>
+
     </section>
 
     <section title="Hash functions support" anchor="streebog">
@@ -140,7 +180,7 @@
     }]]></artwork></figure>.</t>
         <t>where:
           <list style="symbols">
-            <t>publicKeyParamSet - public key parameters identifier for GOST R 34.10-2012 (see Sections 5.1 and 5.2 of <xref target="RFC7836"/>) or GOST R 34.10-2001 (see Section 8.4 of <xref target="RFC4357"/>) parameters.</t>
+            <t>publicKeyParamSet - public key parameters identifier for GOST R 34.10-2012 (see Sections 5.1 and 5.2 of <xref target="RFC7836"/> or <xref target="pkparamsBCD" />) or GOST R 34.10-2001 (see Section 8.4 of <xref target="RFC4357"/>) parameters.</t>
             <t>digestParamSet - parameter identifier for corresponding GOST R 34.11-2012 (See <xref target="streebog" />).</t>
           </list>
         </t>
@@ -219,26 +259,26 @@ GostR3410-2012-512-PublicKey ::= OCTET STRING (128).</artwork></figure></t>
             <postamble>Corresponding OID is <spanx style="verb">1.2.643.100.3</spanx>.</postamble>
         </figure></t>
         <t><figure>
-            <preamble>INN is the VAT identification number.</preamble>
-            <artwork>OGRN ::= NUMERIC STRING 12</artwork>
+            <preamble>INN is the individual taxpayer number (ITN).</preamble>
+            <artwork>INN ::= NUMERIC STRING 12</artwork>
             <postamble>Corresponding OID is <spanx style="verb">1.2.643.3.131.1.1</spanx>.</postamble>
         </figure></t>
       </section>
       <section title="Certificate policies">
-        <t>FSB has defined several classes of cryptographic tokens, depending
-          on their ability to resist different kinds of attacks. Depending on
+        <t>Russian national regulation body for cryptography defines several security 
+          levels of cryptographic tools. Depending on
           the class of cryptographic token used by certificate owner the
           following OIDs must be included into certificate policies.
           Certificate should include OIDs starting from the lowest one (KC1) up
           to the strongest applicable.
 
           <list style="symbols">
-            <t><spanx style="verb">1.2.643.113.1</spanx> - class KC1,</t>
-            <t><spanx style="verb">1.2.643.113.2</spanx> - class KC2,</t>
-            <t><spanx style="verb">1.2.643.113.3</spanx> - class KC3,</t>
-            <t><spanx style="verb">1.2.643.113.4</spanx> - class KB1,</t>
-            <t><spanx style="verb">1.2.643.113.5</spanx> - class KB2,</t>
-            <t><spanx style="verb">1.2.643.113.6</spanx> - class KA1.</t>
+            <t><spanx style="verb">1.2.643.100.113.1</spanx> - class KC1,</t>
+            <t><spanx style="verb">1.2.643.100.113.2</spanx> - class KC2,</t>
+            <t><spanx style="verb">1.2.643.100.113.3</spanx> - class KC3,</t>
+            <t><spanx style="verb">1.2.643.100.113.4</spanx> - class KB1,</t>
+            <t><spanx style="verb">1.2.643.100.113.5</spanx> - class KB2,</t>
+            <t><spanx style="verb">1.2.643.100.113.6</spanx> - class KA1.</t>
         </list></t>
       </section>
       <section title="Subject Sign Tool">
@@ -268,7 +308,16 @@ GostR3410-2012-512-PublicKey ::= OCTET STRING (128).</artwork></figure></t>
     </section>
 
     <section title="Security Considerations">
-      <t><cref anchor="Q1" source="DES">TBD</cref></t>
+      <t>It is RECOMMENDED that applications verify signature values and subject 
+        public keys to conform to <xref target="RFC7091" /> standard prior to their use.</t>
+      
+      <t>It is RECOMMENDED that CAs and applications make sure that the private key 
+        for creating signatures is not used for more than its allowed validity period 
+        (typically 15 months for GOST R 34.10-2012 algorithm).</t>
+      
+      <t>For security discussion concerning use of algorithm parameters, see <xref target="ANS17" /> 
+        and the Security Considerations sections in <xref target="RFC4357" />, <xref target="RFC7836" />.</t>
+
     </section>
 
   </middle>
@@ -279,6 +328,8 @@ GostR3410-2012-512-PublicKey ::= OCTET STRING (128).</artwork></figure></t>
       <?rfc include='reference.RFC.6986.xml'?>
       <?rfc include='reference.RFC.5280.xml'?>
       <?rfc include='reference.RFC.3279.xml'?>
+      <?rfc include='reference.RFC.3280.xml'?>
+      <?rfc include='reference.RFC.3852.xml'?>
       <?rfc include='reference.RFC.2119.xml'?>
       <?rfc include='reference.RFC.4357.xml'?>
       <?rfc include='reference.RFC.7836.xml'?>
@@ -314,10 +365,46 @@ GostR3410-2012-512-PublicKey ::= OCTET STRING (128).</artwork></figure></t>
         </front>
         <seriesInfo name="GOST R" value="34.11-2012"/>
       </reference>
+      
+      <reference anchor="ANS17">
+        <front>
+          <title>
+            On the security properties of Russian standardized elliptic curves.
+          </title>
+          <author>
+            <organization>
+              Alekseev E.K., Nikolaev V.D., Smyshlyaev S.V.
+            </organization>
+          </author>
+          <date year="2018"/>
+        </front>
+        <seriesInfo name="Mathematical Aspects of Cryptography" value="9. № 3. P. 5–32. URL: http://mi.mathnet.ru/mvk260"/>
+      </reference>
+
     </references>
 
-    <section title="Public key parameters">
-      <t><cref anchor="Q2" source="DES">Possibly describe td-tc26-gost-3410-2012-256-paramSetB/C/D parameters?</cref></t>
+    <section title="Public key parameters" anchor="pkparamsBCD">
+      <t>Here we define three new object identifiers for three existing public key parameter sets
+        defined in <xref target="RFC4357" />. These object identifiers MUST be used with 
+        GOST R 34.10-2012 public keys only.</t>
+      <t><figure><artwork><![CDATA[id-tc26-gost-3410-2012-256-paramSetB OBJECT IDENTIFIER ::=
+    { iso(1) member-body(2) ru(643) rosstandart(7) tc26(1)
+        ru(643) rosstandart(7) tc26(1) constants(2) sign-constants(1)
+        gost-3410-12-256-constants(1) paramSetB(2)}]]>.</artwork></figure></t>
+       <t>The elliptic curve of this parameter set is the same as of 
+         id-GostR3410-2001-CryptoPro-A-ParamSet which can be found in <xref target="RFC4357" />.</t>
+      <t><figure><artwork><![CDATA[id-tc26-gost-3410-2012-256-paramSetC OBJECT IDENTIFIER ::=
+    { iso(1) member-body(2) ru(643) rosstandart(7) tc26(1)
+        ru(643) rosstandart(7) tc26(1) constants(2) sign-constants(1)
+        gost-3410-12-256-constants(1) paramSetC(3)}]]>.</artwork></figure></t>
+       <t>The elliptic curve of this parameter set is the same as of 
+         id-GostR3410-2001-CryptoPro-B-ParamSet which can be found in <xref target="RFC4357" />.</t>
+      <t><figure><artwork><![CDATA[id-tc26-gost-3410-2012-256-paramSetD OBJECT IDENTIFIER ::=
+    { iso(1) member-body(2) ru(643) rosstandart(7) tc26(1)
+        ru(643) rosstandart(7) tc26(1) constants(2) sign-constants(1)
+        gost-3410-12-256-constants(1) paramSetD(4)}]]>.</artwork></figure></t>
+       <t>The elliptic curve of this parameter set is the same as of 
+         id-GostR3410-2001-CryptoPro-C-ParamSet which can be found in <xref target="RFC4357" />.</t>
     </section>
 
     <section title="Test Examples">
