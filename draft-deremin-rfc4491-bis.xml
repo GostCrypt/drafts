@@ -371,14 +371,13 @@ GostR3410-2012-512-PublicKey ::= OCTET STRING (128).</artwork></figure></t>
           <title>
             On the security properties of Russian standardized elliptic curves.
           </title>
-          <author>
-            <organization>
-              Alekseev E.K., Nikolaev V.D., Smyshlyaev S.V.
-            </organization>
-          </author>
+          <author fullname="E.K. Alekseev" initials="E.K." surname="Alekseev" />
+          <author fullname="V.D. Nikolaev" initials="V.D." surname="Nikolaev" />
+          <author fullname="S.V. Smyshlyaev" initials="S.V." surname="Smyshlyaev" />
           <date year="2018"/>
         </front>
-        <seriesInfo name="Mathematical Aspects of Cryptography" value="9. № 3. P. 5–32. URL: http://mi.mathnet.ru/mvk260"/>
+        <seriesInfo name="Mathematical Aspects of Cryptography" value="9:3. P. 5-32."/>
+        <seriesInfo name="DOI" value="10.4213/mvk260" />
       </reference>
 
     </references>
