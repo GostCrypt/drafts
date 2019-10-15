@@ -151,20 +151,22 @@
         field.</t>
     </section>
 
-    <section title="GOST R 34.10-2012 Public keys">
-      <t>GOST R 34.10-2012 public keys with 256 bits key length are identified
-        by the following OID:</t>
+    <section title="Subject Public Keys Information Fields">
+      <section title="Public Key identifiers">
+        <t>GOST R 34.10-2012 public keys with 256 bits private key length are
+          identified by the following OID:</t>
 
-      <t><figure><artwork><![CDATA[id-tc26-gost3410-12-256 OBJECT IDENTIFIER ::=
+        <t><figure><artwork><![CDATA[id-tc26-gost3410-12-256 OBJECT IDENTIFIER ::=
     { iso(1) member-body(2) ru(643) rosstandart(7) tc26(1)
         algorithms(1) sign(1) gost3410-12-256(1)}]]>.</artwork></figure></t>
 
-      <t>GOST R 34.10-2012 public keys with 512 bits key length are identified
-        by the following OID:</t>
+        <t>GOST R 34.10-2012 public keys with 512 bits private key length are
+          identified by the following OID:</t>
 
-      <t><figure><artwork><![CDATA[id-tc26-gost3410-12-512 OBJECT IDENTIFIER ::=
+        <t><figure><artwork><![CDATA[id-tc26-gost3410-12-512 OBJECT IDENTIFIER ::=
     { iso(1) member-body(2) ru(643) rosstandart(7) tc26(1)
         algorithms(1) sign(1) gost3410-12-512(2)}]]>.</artwork></figure></t>
+      </section>
 
       <section title="Public Key parameters">
 
@@ -210,42 +212,47 @@
       </section>
       <section title="Public Key encoding">
         <t>The GOST R 34.10-2012 public key MUST be ASN.1 DER encoded as an
-          OCTET STRING. This encoding SHALL be used as the contents (i.e., the
-          value) of the subjectPublicKey component (a BIT STRING) of
-          SubjectPublicKeyInfo data element.</t>
+          OCTET STRING. This encoding SHALL be used as the content (i.e., the
+          value) of the subjectPublicKey field (a BIT STRING) of
+          SubjectPublicKeyInfo structure.</t>
         <t><figure><artwork>GostR3410-2012-256-PublicKey ::= OCTET STRING (64),
 GostR3410-2012-512-PublicKey ::= OCTET STRING (128).</artwork></figure></t>
         <t><spanx style="verb">GostR3410-2012-256-PublicKey</spanx> MUST
           contain 64 octets, where the first 32 octets contain the
           little-endian representation of <spanx style="verb">x</spanx> and the
           second 32 octets contains the little-endian representation of <spanx
-            style="verb">y</spanx>.</t>
+            style="verb">y</spanx> coordinates of the public key.</t>
         <t><spanx style="verb">GostR3410-2012-512-PublicKey</spanx> MUST
           contain 128 octets, where the first 64 octets contain the
           little-endian representation of <spanx style="verb">x</spanx> and the
           second 64 octets contains the little-endian representation of <spanx
-            style="verb">y</spanx>.</t>
+            style="verb">y</spanx> coordinates of the public key.</t>
       </section>
       <section title="Key usage extension">
         <t>If the KeyUsage extension is present in a certificate with GOST R 34.10-2012 public key, the following values MAY be present:
           <list style="symbols">
-            <t>digitalSignature,</t>
-            <t>contentCommitment,</t>
-            <t>keyAgreement,</t>
-            <t>keyCertSign,</t>
-            <t>cRLSign,</t>
-            <t>encipherOnly,</t>
-            <t>decipherOnly.</t>
+            <t><spanx style="verb">digitalSignature</spanx> (0),</t>
+            <t><spanx style="verb">contentCommitment</spanx> (1),</t>
+            <t><spanx style="verb">keyAgreement</spanx> (4),</t>
+            <t><spanx style="verb">keyCertSign</spanx> (5),</t>
+            <t><spanx style="verb">cRLSign</spanx> (6),</t>
+            <t><spanx style="verb">encipherOnly</spanx> (7),</t>
+            <t><spanx style="verb">decipherOnly</spanx> (8).</t>
         </list></t>
-        <t>If the key is going to be used for key agreement, flag keyAgreement
-          MUST be present in KeyUsage extension with encipherOnly and
-          decipherOnly flags being optional. However flags encipherOnly and
-          decipherOnly flags MUST NOT be present simultaneously.</t>
+        <t>Note that <spanx style="verb">contentCommitment</spanx> was named <spanx style="verb">nonRepudiation</spanx> in previous versions of X.509.</t>
+        <t>If the key is going to be used for key agreement, flag <spanx
+          style="verb">keyAgreement</spanx> MUST be present in <spanx
+          style="verb">KeyUsage</spanx> extension with <spanx
+          style="verb">encipherOnly</spanx> and <spanx
+          style="verb">decipherOnly</spanx> flags being optional.  However
+          flags <spanx style="verb">encipherOnly</spanx> and <spanx
+          style="verb">decipherOnly</spanx> flags MUST NOT be present
+          simultaneously.</t>
       </section>
     </section>
 
     <section title="Qualified certificates extensions">
-      <t>This section defines additinal object identifiers (OIDs) for use in
+      <t>This section defines additional object identifiers (OIDs) for use in
         qualified certificates for checking digital signatures.</t>
       <section title="Distinguished Name additions">
         <t><figure>
@@ -287,19 +294,23 @@ GostR3410-2012-512-PublicKey ::= OCTET STRING (128).</artwork></figure></t>
         </figure></t>
       </section>
       <section title="Issuer Sign Tool">
-        <t><figure><preamble>To denote the tools used to generate keypair and tools used by CA to sign certificate following non-critical <spanx style="verb">IssuerSignTool</spanx> extension with OID <spanx style="verb">1.2.643.100.112</spanx> should be included. It is defined as</preamble>
+        <t><figure><preamble>To denote the tools used to generate key pair and tools used by CA to sign certificate following non-critical <spanx style="verb">IssuerSignTool</spanx> extension with OID <spanx style="verb">1.2.643.100.112</spanx> should be included. It is defined as</preamble>
             <artwork>IssuerSignTool ::= SEQUENCE {
   signTool     UTF8String SIZE(1..200),
   cATool       UTF8String SIZE(1..200),
   signToolCert UTF8String SIZE(1..100),
-  cAToolCert   UTF8String SIZE(1..100) } .</artwork>
+  cAToolCert   UTF8String SIZE(1..100) }, </artwork>
         </figure></t>
-        <t>Here <spanx style="verb">signTool</spanx> identifies tools used to
-          create keypair, <spanx style="verb">cATool</spanx> identifies tools
-          used by certificate authority and <spanx
-            style="verb">signToolCert</spanx> and <spanx
-            style="verb">cAToolCert</spanx> contain the notice of respective
-          tools conformance to Russian federal law on digital signature.</t>
+        <t>where:<list style="symbols">
+            <t><spanx style="verb">signTool</spanx> identifies tools used to
+              create key pair,</t>
+            <t><spanx style="verb">cATool</spanx> identifies tools used by
+              certificate authority,</t>
+            <t><spanx style="verb">signToolCert</spanx> and <spanx
+              style="verb">cAToolCert</spanx> contain the notice of
+                respective tools conformance to Russian federal law on
+                digital signature.</t>
+          </list></t>
       </section>
     </section>
 
@@ -477,6 +488,17 @@ s1FbiDokJqzGC2u+Qaoo0vGrFIKAzZ7Vb+2kGXQFNVSkJ2e4OtBD/TncBJM=
               ]]></artwork></figure></t>
 
       </section>
+    </section>
+
+    <section anchor="contributors" title="Contributors">
+      <t>
+        <list style="symbols">
+          <t>Semen Pianov <vspace/>
+              InfoTeCS JSC <vspace />
+              Semen.Pianov@infotecs.ru
+          </t>
+        </list>
+      </t>
     </section>
   </back>
 
