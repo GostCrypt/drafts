@@ -118,9 +118,9 @@
         AlgorithmIdentifier structure, the encoding MUST omit the parameters
         field.</t>
      
-      <t>The described definition of a signature value is directly usable in CMS <xref target="RFC3852"/>,
+      <t>The described definition of a signature value is directly usable in CMS <xref target="RFC5652"/>,
         where such values are represented as octet strings.  However,
-        signature values in certificates and CRLs <xref target="RFC3280"/> are represented
+        signature values in certificates and CRLs <xref target="RFC5280"/> are represented
         as bit strings, and thus the octet string representation must be
         converted.</t>
 
@@ -339,8 +339,7 @@ GostR3410-2012-512-PublicKey ::= OCTET STRING (128).</artwork></figure></t>
       <?rfc include='reference.RFC.6986.xml'?>
       <?rfc include='reference.RFC.5280.xml'?>
       <?rfc include='reference.RFC.3279.xml'?>
-      <?rfc include='reference.RFC.3280.xml'?>
-      <?rfc include='reference.RFC.3852.xml'?>
+      <?rfc include='reference.RFC.5652.xml'?>
       <?rfc include='reference.RFC.2119.xml'?>
       <?rfc include='reference.RFC.4357.xml'?>
       <?rfc include='reference.RFC.7836.xml'?>
