@@ -541,6 +541,7 @@ END -- GostR3410-2012-PKISyntax]]></artwork></figure></t>
     </section>
 
     <section title="Test Examples">
+      <t><cref anchor="Q1" source="DES">Provide examples using 512-bit key and Edwards curves.</cref></t>
       <section title="Certificate with GOST R 34.10-2001 Test parameters">
         <t><figure><preamble>This certificate uses private and public keys from Section 7.1 of <xref target="RFC7091" />.</preamble>
             <artwork><![CDATA[
