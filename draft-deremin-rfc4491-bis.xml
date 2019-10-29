@@ -541,10 +541,66 @@ END -- GostR3410-2012-PKISyntax]]></artwork></figure></t>
     </section>
 
     <section title="Test Examples">
-      <t><cref anchor="Q1" source="DES">Provide examples using 512-bit key and Edwards curves.</cref></t>
-      <section title="Certificate with GOST R 34.10-2001 Test parameters">
-        <t><figure><preamble>This certificate uses private and public keys from Section 7.1 of <xref target="RFC7091" />.</preamble>
-            <artwork><![CDATA[
+      <section title="GOST R 34.10-2001 Test parameters (256 bit private key length)">
+        <t>This example uses curve defined in Section 7.1 of <xref target="RFC7091" />.</t>
+        <t><figure><preamble>Private key is</preamble>
+            <artwork>d = 0x7A929ADE789BB9BE10ED359DD39A72C11B60961F49397EEE1D19CE9891EC3B28</artwork>
+        </figure></t>
+        <t><figure><preamble>Public key is</preamble>
+            <artwork>X = 0x7F2B49E270DB6D90D8595BEC458B50C58585BA1D4E9B788F6689DBD8E56FD80B
+Y = 0x26F1B489D6701DD185C8413A977B3CBBAF64D1C593D26627DFFB101A87FF77DA</artwork>
+        </figure></t>
+        <section title="Certificate request">
+          <t><figure><artwork><![CDATA[
+-----BEGIN CERTIFICATE REQUEST-----
+MIHTMIGBAgEAMBIxEDAOBgNVBAMTB0V4YW1wbGUwZjAfBggqhQMHAQEBATATBgcq
+hQMCAiMABggqhQMHAQECAgNDAARAC9hv5djbiWaPeJtOHbqFhcVQi0XsW1nYkG3b
+cOJJK3/ad/+HGhD73ydm0pPF0WSvuzx7lzpByIXRHXDWibTxJqAAMAoGCCqFAwcB
+AQMCA0EAaqqzjjXUqqUXlAMBeZEi2FVIT1efTLuW1jzf3zrMQypBqijS8asUgoDN
+ntVv7aQZdAU1VKQnZ7g60EP9OdwEkw==
+-----END CERTIFICATE REQUEST-----
+
+  0 211: SEQUENCE {
+  3 129:   SEQUENCE {
+  6   1:     INTEGER 0
+  9  18:     SEQUENCE {
+ 11  16:       SET {
+ 13  14:         SEQUENCE {
+ 15   3:           OBJECT IDENTIFIER commonName (2 5 4 3)
+ 20   7:           PrintableString 'Example'
+       :           }
+       :         }
+       :       }
+ 29 102:     SEQUENCE {
+ 31  31:       SEQUENCE {
+ 33   8:         OBJECT IDENTIFIER '1 2 643 7 1 1 1 1'
+ 43  19:         SEQUENCE {
+ 45   7:           OBJECT IDENTIFIER testSignParams (1 2 643 2 2 35 0)
+ 54   8:           OBJECT IDENTIFIER '1 2 643 7 1 1 2 2'
+       :           }
+       :         }
+ 64  67:       BIT STRING, encapsulates {
+ 67  64:         OCTET STRING
+       :           0B D8 6F E5 D8 DB 89 66 8F 78 9B 4E 1D BA 85 85
+       :           C5 50 8B 45 EC 5B 59 D8 90 6D DB 70 E2 49 2B 7F
+       :           DA 77 FF 87 1A 10 FB DF 27 66 D2 93 C5 D1 64 AF
+       :           BB 3C 7B 97 3A 41 C8 85 D1 1D 70 D6 89 B4 F1 26
+       :         }
+       :       }
+133   0:     [0] {}
+       :     }
+135  10:   SEQUENCE {
+137   8:     OBJECT IDENTIFIER '1 2 643 7 1 1 3 2'
+       :     }
+147  65:   BIT STRING
+       :     6A AA B3 8E 35 D4 AA A5 17 94 03 01 79 91 22 D8
+       :     55 48 4F 57 9F 4C BB 96 D6 3C DF DF 3A CC 43 2A
+       :     41 AA 28 D2 F1 AB 14 82 80 CD 9E D5 6F ED A4 19
+       :     74 05 35 54 A4 27 67 B8 3A D0 43 FD 39 DC 04 93
+       :   }]]></artwork></figure></t>
+        </section>
+        <section title="Certificate">
+          <t><figure><artwork><![CDATA[
 -----BEGIN CERTIFICATE-----
 MIIBGDCBxqADAgECAgEKMAoGCCqFAwcBAQMCMBIxEDAOBgNVBAMTB0V4YW1wbGUw
 IBcNMDEwMTAxMDAwMDAwWhgPMjA1MDEyMzEwMDAwMDBaMBIxEDAOBgNVBAMTB0V4
@@ -608,9 +664,239 @@ s1FbiDokJqzGC2u+Qaoo0vGrFIKAzZ7Vb+2kGXQFNVSkJ2e4OtBD/TncBJM=
        :     93 F2 66 AC B3 51 5B 88 3A 24 26 AC C6 0B 6B BE
        :     41 AA 28 D2 F1 AB 14 82 80 CD 9E D5 6F ED A4 19
        :     74 05 35 54 A4 27 67 B8 3A D0 43 FD 39 DC 04 93
-       :   }
-              ]]></artwork></figure></t>
+       :   }]]></artwork></figure></t>
+        </section>
+        <section title="Certificate Revocation List">
+          <t><figure><artwork><![CDATA[
+-----BEGIN X509 CRL-----
+MIGSMEECAQEwCgYIKoUDBwEBAwIwEjEQMA4GA1UEAxMHRXhhbXBsZRcNMTQwMTAx
+MDAwMDAwWhcNMTQwMTAyMDAwMDAwWjAKBggqhQMHAQEDAgNBAEK/OSoU0+vpV68+
+RstQv19CIaADrT0XJ1PJSpw3ox0gQaoo0vGrFIKAzZ7Vb+2kGXQFNVSkJ2e4OtBD
+/TncBJM=
+-----END X509 CRL-----
 
+  0 146: SEQUENCE {
+  3  65:   SEQUENCE {
+  5   1:     INTEGER 1
+  8  10:     SEQUENCE {
+ 10   8:       OBJECT IDENTIFIER '1 2 643 7 1 1 3 2'
+       :       }
+ 20  18:     SEQUENCE {
+ 22  16:       SET {
+ 24  14:         SEQUENCE {
+ 26   3:           OBJECT IDENTIFIER commonName (2 5 4 3)
+ 31   7:           PrintableString 'Example'
+       :           }
+       :         }
+       :       }
+ 40  13:     UTCTime 01/01/2014 00:00:00 GMT
+ 55  13:     UTCTime 02/01/2014 00:00:00 GMT
+       :     }
+ 70  10:   SEQUENCE {
+ 72   8:     OBJECT IDENTIFIER '1 2 643 7 1 1 3 2'
+       :     }
+ 82  65:   BIT STRING
+       :     42 BF 39 2A 14 D3 EB E9 57 AF 3E 46 CB 50 BF 5F
+       :     42 21 A0 03 AD 3D 17 27 53 C9 4A 9C 37 A3 1D 20
+       :     41 AA 28 D2 F1 AB 14 82 80 CD 9E D5 6F ED A4 19
+       :     74 05 35 54 A4 27 67 B8 3A D0 43 FD 39 DC 04 93
+       :   }]]></artwork></figure></t>
+        </section>
+      </section>
+
+      <section title="GOST R 34.10-2012 TC26-256-A parameters (256 bit private key length)">
+        <t><cref anchor="Q1" source="DES">Provide examples using Edwards curve.</cref></t>
+      </section>
+
+      <section title="GOST R 34.10-2012 Test parameters (512 bit private key length)">
+        <t>This example uses curve <cref anchor="Q2" source="DES">Define the curve or reference a document.</cref></t>
+        <t><figure><preamble>Private key is</preamble>
+            <artwork>d = 0x0BA6048AADAE241BA40936D47756D7C93091A0E8514669700EE7508E508B1020\\
+    72E8123B2200A0563322DAD2827E2714A2636B7BFD18AADFC62967821FA18DD4</artwork>
+        </figure></t>
+        <t><figure><preamble>Public key is</preamble>
+            <artwork>X = 0x115DC5BC96760C7B48598D8AB9E740D4C4A85A65BE33C1815B5C320C854621DD\\
+    5A515856D13314AF69BC5B924C8B4DDFF75C45415C1D9DD9DD33612CD530EFE1
+Y = 0x37C7C90CD40B0F5621DC3AC1B751CFA0E2634FA0503B3D52639F5D7FB72AFD61\\
+    EA199441D943FFE7F0C70A2759A3CDB84C114E1F9339FDF27F35ECA93677BEEC</artwork>
+        </figure></t>
+        <section title="Certificate request">
+          <t><figure><artwork><![CDATA[
+-----BEGIN CERTIFICATE REQUEST-----
+MIIBTzCBvAIBADASMRAwDgYDVQQDEwdFeGFtcGxlMIGgMBcGCCqFAwcBAQECMAsG
+CSqFAwcBAgECAAOBhAAEgYDh7zDVLGEz3dmdHVxBRVz3302LTJJbvGmvFDPRVlhR
+Wt0hRoUMMlxbgcEzvmVaqMTUQOe5io1ZSHsMdpa8xV0R7L53NqnsNX/y/TmTH04R
+TLjNo1knCsfw5/9D2UGUGeph/Sq3f12fY1I9O1CgT2PioM9Rt8E63CFWDwvUDMnH
+N6AAMAoGCCqFAwcBAQMDA4GBAEM7HWzkClHx5XN+sWqixoOCmkBbnZEn4hJg/J1q
+wF2HvyTibEUnilwhkqdbqUmTq9YHTn/xvwP9L1OXr6HZRVgvhvpgoIEJGiPdeV4e
+PGie5RKjyC7g3MJkPHjuqPys01SSVYSGsg8cnsGXyQaZhQJgyTvLzZxcMxfhk0Th
+c642
+-----END CERTIFICATE REQUEST-----
+
+  0 335: SEQUENCE {
+  4 188:   SEQUENCE {
+  7   1:     INTEGER 0
+ 10  18:     SEQUENCE {
+ 12  16:       SET {
+ 14  14:         SEQUENCE {
+ 16   3:           OBJECT IDENTIFIER commonName (2 5 4 3)
+ 21   7:           PrintableString 'Example'
+       :           }
+       :         }
+       :       }
+ 30 160:     SEQUENCE {
+ 33  23:       SEQUENCE {
+ 35   8:         OBJECT IDENTIFIER '1 2 643 7 1 1 1 2'
+ 45  11:         SEQUENCE {
+ 47   9:           OBJECT IDENTIFIER '1 2 643 7 1 2 1 2 0'
+       :           }
+       :         }
+ 58 132:       BIT STRING, encapsulates {
+ 62 128:         OCTET STRING
+       :           E1 EF 30 D5 2C 61 33 DD D9 9D 1D 5C 41 45 5C F7
+       :           DF 4D 8B 4C 92 5B BC 69 AF 14 33 D1 56 58 51 5A
+       :           DD 21 46 85 0C 32 5C 5B 81 C1 33 BE 65 5A A8 C4
+       :           D4 40 E7 B9 8A 8D 59 48 7B 0C 76 96 BC C5 5D 11
+       :           EC BE 77 36 A9 EC 35 7F F2 FD 39 93 1F 4E 11 4C
+       :           B8 CD A3 59 27 0A C7 F0 E7 FF 43 D9 41 94 19 EA
+       :           61 FD 2A B7 7F 5D 9F 63 52 3D 3B 50 A0 4F 63 E2
+       :           A0 CF 51 B7 C1 3A DC 21 56 0F 0B D4 0C C9 C7 37
+       :         }
+       :       }
+193   0:     [0] {}
+       :     }
+195  10:   SEQUENCE {
+197   8:     OBJECT IDENTIFIER '1 2 643 7 1 1 3 3'
+       :     }
+207 129:   BIT STRING
+       :     43 3B 1D 6C E4 0A 51 F1 E5 73 7E B1 6A A2 C6 83
+       :     82 9A 40 5B 9D 91 27 E2 12 60 FC 9D 6A C0 5D 87
+       :     BF 24 E2 6C 45 27 8A 5C 21 92 A7 5B A9 49 93 AB
+       :     D6 07 4E 7F F1 BF 03 FD 2F 53 97 AF A1 D9 45 58
+       :     2F 86 FA 60 A0 81 09 1A 23 DD 79 5E 1E 3C 68 9E
+       :     E5 12 A3 C8 2E E0 DC C2 64 3C 78 EE A8 FC AC D3
+       :     54 92 55 84 86 B2 0F 1C 9E C1 97 C9 06 99 85 02
+       :     60 C9 3B CB CD 9C 5C 33 17 E1 93 44 E1 73 AE 36
+       :   }]]></artwork></figure></t>
+        </section>
+        <section title="Certificate">
+          <t><figure><artwork><![CDATA[
+-----BEGIN CERTIFICATE-----
+MIIBlTCCAQGgAwIBAgIBCzAKBggqhQMHAQEDAzASMRAwDgYDVQQDEwdFeGFtcGxl
+MCAXDTAxMDEwMTAwMDAwMFoYDzIwNTAxMjMxMDAwMDAwWjASMRAwDgYDVQQDEwdF
+eGFtcGxlMIGgMBcGCCqFAwcBAQECMAsGCSqFAwcBAgECAAOBhAAEgYDh7zDVLGEz
+3dmdHVxBRVz3302LTJJbvGmvFDPRVlhRWt0hRoUMMlxbgcEzvmVaqMTUQOe5io1Z
+SHsMdpa8xV0R7L53NqnsNX/y/TmTH04RTLjNo1knCsfw5/9D2UGUGeph/Sq3f12f
+Y1I9O1CgT2PioM9Rt8E63CFWDwvUDMnHNzAKBggqhQMHAQEDAwOBgQA9Vd5th8PV
++E7oRo6Oiy2W4DQS5+enYn2gg+fFdnQm22r2MVNyGRUyCj2h+aNGM7r87Q72BPcv
+G+UvN6IYEpJsL4b6YKCBCRoj3XleHjxonuUSo8gu4NzCZDx47qj8rNNUklWEhrIP
+HJ7Bl8kGmYUCYMk7y82cXDMX4ZNE4XOuNg==
+-----END CERTIFICATE-----
+
+  0 405: SEQUENCE {
+  4 257:   SEQUENCE {
+  8   3:     [0] {
+ 10   1:       INTEGER 2
+       :       }
+ 13   1:     INTEGER 11
+ 16  10:     SEQUENCE {
+ 18   8:       OBJECT IDENTIFIER '1 2 643 7 1 1 3 3'
+       :       }
+ 28  18:     SEQUENCE {
+ 30  16:       SET {
+ 32  14:         SEQUENCE {
+ 34   3:           OBJECT IDENTIFIER commonName (2 5 4 3)
+ 39   7:           PrintableString 'Example'
+       :           }
+       :         }
+       :       }
+ 48  32:     SEQUENCE {
+ 50  13:       UTCTime 01/01/2001 00:00:00 GMT
+ 65  15:       GeneralizedTime 31/12/2050 00:00:00 GMT
+       :       }
+ 82  18:     SEQUENCE {
+ 84  16:       SET {
+ 86  14:         SEQUENCE {
+ 88   3:           OBJECT IDENTIFIER commonName (2 5 4 3)
+ 93   7:           PrintableString 'Example'
+       :           }
+       :         }
+       :       }
+102 160:     SEQUENCE {
+105  23:       SEQUENCE {
+107   8:         OBJECT IDENTIFIER '1 2 643 7 1 1 1 2'
+117  11:         SEQUENCE {
+119   9:           OBJECT IDENTIFIER '1 2 643 7 1 2 1 2 0'
+       :           }
+       :         }
+130 132:       BIT STRING, encapsulates {
+134 128:         OCTET STRING
+       :           E1 EF 30 D5 2C 61 33 DD D9 9D 1D 5C 41 45 5C F7
+       :           DF 4D 8B 4C 92 5B BC 69 AF 14 33 D1 56 58 51 5A
+       :           DD 21 46 85 0C 32 5C 5B 81 C1 33 BE 65 5A A8 C4
+       :           D4 40 E7 B9 8A 8D 59 48 7B 0C 76 96 BC C5 5D 11
+       :           EC BE 77 36 A9 EC 35 7F F2 FD 39 93 1F 4E 11 4C
+       :           B8 CD A3 59 27 0A C7 F0 E7 FF 43 D9 41 94 19 EA
+       :           61 FD 2A B7 7F 5D 9F 63 52 3D 3B 50 A0 4F 63 E2
+       :           A0 CF 51 B7 C1 3A DC 21 56 0F 0B D4 0C C9 C7 37
+       :         }
+       :       }
+       :     }
+265  10:   SEQUENCE {
+267   8:     OBJECT IDENTIFIER '1 2 643 7 1 1 3 3'
+       :     }
+277 129:   BIT STRING
+       :     3D 55 DE 6D 87 C3 D5 F8 4E E8 46 8E 8E 8B 2D 96
+       :     E0 34 12 E7 E7 A7 62 7D A0 83 E7 C5 76 74 26 DB
+       :     6A F6 31 53 72 19 15 32 0A 3D A1 F9 A3 46 33 BA
+       :     FC ED 0E F6 04 F7 2F 1B E5 2F 37 A2 18 12 92 6C
+       :     2F 86 FA 60 A0 81 09 1A 23 DD 79 5E 1E 3C 68 9E
+       :     E5 12 A3 C8 2E E0 DC C2 64 3C 78 EE A8 FC AC D3
+       :     54 92 55 84 86 B2 0F 1C 9E C1 97 C9 06 99 85 02
+       :     60 C9 3B CB CD 9C 5C 33 17 E1 93 44 E1 73 AE 36
+       :   }]]></artwork></figure></t>
+        </section>
+        <section title="Certificate Revocation List">
+          <t><figure><artwork><![CDATA[
+-----BEGIN X509 CRL-----
+MIHTMEECAQEwCgYIKoUDBwEBAwMwEjEQMA4GA1UEAxMHRXhhbXBsZRcNMTQwMTAx
+MDAwMDAwWhcNMTQwMTAyMDAwMDAwWjAKBggqhQMHAQEDAwOBgQA6E/t67NtVYO72
+E3z8XdZGkXMuv7NpCh/Ax+ik7uoIMH1kjU3AmGxGqHs/vkx69C6jQ1nHlZVMo5/z
+q77ZBR9NL4b6YKCBCRoj3XleHjxonuUSo8gu4NzCZDx47qj8rNNUklWEhrIPHJ7B
+l8kGmYUCYMk7y82cXDMX4ZNE4XOuNg==
+-----END X509 CRL-----
+
+  0 211: SEQUENCE {
+  3  65:   SEQUENCE {
+  5   1:     INTEGER 1
+  8  10:     SEQUENCE {
+ 10   8:       OBJECT IDENTIFIER '1 2 643 7 1 1 3 3'
+       :       }
+ 20  18:     SEQUENCE {
+ 22  16:       SET {
+ 24  14:         SEQUENCE {
+ 26   3:           OBJECT IDENTIFIER commonName (2 5 4 3)
+ 31   7:           PrintableString 'Example'
+       :           }
+       :         }
+       :       }
+ 40  13:     UTCTime 01/01/2014 00:00:00 GMT
+ 55  13:     UTCTime 02/01/2014 00:00:00 GMT
+       :     }
+ 70  10:   SEQUENCE {
+ 72   8:     OBJECT IDENTIFIER '1 2 643 7 1 1 3 3'
+       :     }
+ 82 129:   BIT STRING
+       :     3A 13 FB 7A EC DB 55 60 EE F6 13 7C FC 5D D6 46
+       :     91 73 2E BF B3 69 0A 1F C0 C7 E8 A4 EE EA 08 30
+       :     7D 64 8D 4D C0 98 6C 46 A8 7B 3F BE 4C 7A F4 2E
+       :     A3 43 59 C7 95 95 4C A3 9F F3 AB BE D9 05 1F 4D
+       :     2F 86 FA 60 A0 81 09 1A 23 DD 79 5E 1E 3C 68 9E
+       :     E5 12 A3 C8 2E E0 DC C2 64 3C 78 EE A8 FC AC D3
+       :     54 92 55 84 86 B2 0F 1C 9E C1 97 C9 06 99 85 02
+       :     60 C9 3B CB CD 9C 5C 33 17 E1 93 44 E1 73 AE 36
+       :   }]]></artwork></figure></t>
+        </section>
       </section>
     </section>
 
