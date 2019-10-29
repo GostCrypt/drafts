@@ -14,7 +14,7 @@
   <front>
     <title abbrev="PKIX: GOST R 34.10-2012, GOST R 34.11-2012">Using GOST R 34.10-2012 and GOST R 34.11-2012 algorithms with the Internet X.509 Public Key Infrastructure</title>
 
-    <author fullname="Dmitry Eremin-Solenikov" initials="D." surname="Eremin-Solenikov">
+    <author fullname="Dmitry Eremin-Solenikov" initials="D." surname="Eremin-Solenikov" role="editor" >
       <organization>Mentor Graphics (Ireland) Ltd.</organization>
       <address>
         <postal>
@@ -27,7 +27,7 @@
         <email>dbaryshkov@gmail.com</email>
       </address>
     </author>
-    
+
     <author fullname="Vasily Nikolaev" initials="V." surname="Nikolaev">
             <organization>CryptoPro</organization>
             <address>
@@ -41,6 +41,21 @@
                 <email>nikolaev@cryptopro.ru</email>
             </address>
         </author>
+
+    <author fullname="Aleksandr Chelpanov" initials="A." surname="Chelpanov">
+      <organization>InfoTeCS JSC</organization>
+      <address>
+        <postal>
+          <street>Bldg. 1, 1/23, Stary Petrovsko-Razumovskiy Proezd</street>
+          <city>Moscow</city>
+          <code>127287</code>
+          <country>Russian Federation</country>
+        </postal>
+        <phone>+7 (495) 737-61-92</phone>
+        <email>Aleksandr.Chelpanov@infotecs.ru</email>
+      </address>
+    </author>
+
 
     <date month="" year="2019"/>
 
