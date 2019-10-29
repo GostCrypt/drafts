@@ -234,12 +234,6 @@
           </list></t>
       </section>
     </section>
-<section title="Description of Kuznyechik cipher" anchor="section_kuznyechik" >
-  <t>This section corresponds to a section in <xref target="GOSTR3412-2015" />
-      which describes "Kuznyechik" cipher (a cipher with 128-bit block length
-    an 256 bytes key length). Translation of that section is provided as a
-    part of <xref target="RFC7801"/>.</t>
-</section>
 
 
     <section title="Parameter Values">
@@ -616,9 +610,7 @@ G[K_2]...G[K_32](b_1, b_0) = (28da3b14, 76543210).]]></artwork>
       <t>This specification is a translation of relevant parts of <xref
 	  target="GOSTR3412-2015" /> standard. The order of terms in both
 	  parts of <xref target="section_defs_notation" /> comes from original
-	  text. Empty section <xref target="section_kuznyechik" /> is a
-	  placeholder for a section from original standard describing
-	  Kuznyechik. If one combines <xref target="RFC7801" /> with this
+	  text. If one combines <xref target="RFC7801" /> with this
 	  document, he will have complete translation of <xref
 	    target="GOSTR3412-2015" /> into English.</t>
 
