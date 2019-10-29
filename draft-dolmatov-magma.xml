@@ -68,27 +68,16 @@
     <keyword>Block Cipher</keyword>
 
     <abstract>
-      <t>The Russian Federal standard for electronic encryption, decryption,
-	and message authentication algorithms (GOST 28147-89), which is one
-	of the Russian cryptographic standard algorithms is described in
-	RFC 5830.  Since its publication, an update to the Russian Federal
-	standard was published as GOST R 34.12-2015 that includes the
-	specification of the block cipher known as "Kuznyechik" which has been
-	described in RFC 7801.</t>
-
-      <t>GOST R 34.12-2015 also includes an updated version of the block
+      <t>In addition to a new cipher with block length of n=128 bits (referred
+        as "Kyznyechik" and described in RFC 7801) Russian Federal standard
+        GOST R 34.12-2015 includes an updated version of the block
 	cipher with block length of n=64 bits and key length k=256 bits, which
-	is also referred as "Magma".  This document is intended to be a source
+	is also referred as "Magma". This document is intended to be a source
 	of information about the updated version of 64-bit cipher. It may
 	facilitate the use of the block cipher in Internet applications by
 	providing information for developers and users of GOST 64-bit
 	cipher with the revised version of the cipher for encryption and
-	decryption.</t>
-
-      <t>Unlike RFC 5830 (GOST 28147-89) and like RFC 7801 this specification
-	does not define exact block modes which should be used together with
-	updated Magma cipher. One is free to select block modes depending on
-	the protocol and necessity.</t>
+        decryption.</t>
     </abstract>
   </front>
 
@@ -357,6 +346,10 @@ K_(i+24)=K_(9-i), i = 1, 2, ..., 8.]]></artwork>
 
     <section anchor="Security" title="Security Considerations">
       <t>This entire document is about security considerations.</t>
+      <t>Unlike <xref target="RFC5830" /> (GOST 28147-89) and like <xref
+        target="RFC7801" /> this specification does not define exact block
+        modes which should be used together with updated Magma cipher. One is
+        free to select block modes depending on the protocol and necessity.</t>
     </section>
   </middle>
 
