@@ -204,7 +204,7 @@
 
         <t>The field digestParamSet:
           <list style="symbols">
-            <t>SHOULD be omited if GOST R 34.10-2012 signature algorithm is used with 512-bit key length;</t>
+            <t>SHOULD be omitted if GOST R 34.10-2012 signature algorithm is used with 512-bit key length;</t>
             <t>MUST be present and must be equal to id-tc26-digest-gost3411-12-256 id one of the following values is used as publicKeyParamSet:
               <list style="symbols">
                 <t><spanx style="verb">id-GostR3410-2001-CryptoPro-A-ParamSet</spanx>,</t>
@@ -213,11 +213,11 @@
                 <t><spanx style="verb">id-GostR3410-2001-CryptoPro-XchA-ParamSet</spanx>,</t>
                 <t><spanx style="verb">id-GostR3410-2001-CryptoPro-XchB-ParamSet</spanx>;</t>
             </list></t>
-            <t>SHOULD be omited if publicKeyParamSet is equal to:
+            <t>SHOULD be omitted if publicKeyParamSet is equal to:
               <list style="symbols">
                 <t><spanx style="verb">id-tc26-gost-3410-2012-256-paramSetA</spanx>;</t>
             </list></t>
-            <t>MUST be omited if one of the following values is used as publicKeyParamSet:
+            <t>MUST be omitted if one of the following values is used as publicKeyParamSet:
               <list style="symbols">
                 <t><spanx style="verb">id-tc26-gost-3410-2012-256-paramSetB</spanx>,</t>
                 <t><spanx style="verb">id-tc26-gost-3410-2012-256-paramSetC</spanx>,</t>
