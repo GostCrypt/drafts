@@ -15,16 +15,17 @@ Expires: May 2, 2020                                    October 30, 2019
 Abstract
 
    In addition to a new cipher with block length of n=128 bits (referred
-   as "Kyznyechik" and described in RFC 7801) Russian Federal standard
-   GOST R 34.12-2015 includes an updated version of the block cipher
-   with block length of n=64 bits and key length k=256 bits, which is
-   also referred as "Magma".  The algorithm is an updated version of
-   older block cipher with block length of n=64 bits described in GOST
-   28147-89 (RFC 5830).  This document is intended to be a source of
-   information about the updated version of 64-bit cipher.  It may
-   facilitate the use of the block cipher in Internet applications by
-   providing information for developers and users of GOST 64-bit cipher
-   with the revised version of the cipher for encryption and decryption.
+   to as "Kyznyechik" and described in RFC 7801) Russian Federal
+   standard GOST R 34.12-2015 includes an updated version of the block
+   cipher with block length of n=64 bits and key length k=256 bits,
+   which is also referred to as "Magma".  The algorithm is an updated
+   version of an older block cipher with block length of n=64 bits
+   described in GOST 28147-89 (RFC 5830).  This document is intended to
+   be a source of information about the updated version of the 64-bit
+   cipher.  It may facilitate the use of the block cipher in Internet
+   applications by providing information for developers and users of
+   GOST 64-bit cipher with the revised version of the cipher for
+   encryption and decryption.
 
 Status of This Memo
 
@@ -48,8 +49,6 @@ Copyright Notice
    Copyright (c) 2019 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
-   This document is subject to BCP 78 and the IETF Trust's Legal
-   Provisions Relating to IETF Documents
 
 
 
@@ -58,6 +57,8 @@ Dolmatov & Eremin-SolenikovExpires May 2, 2020                  [Page 1]
 Internet-Draft   GOST R 34.12-2015: Block Cipher "Magma"    October 2019
 
 
+   This document is subject to BCP 78 and the IETF Trust's Legal
+   Provisions Relating to IETF Documents
    (https://trustee.ietf.org/license-info) in effect on the date of
    publication of this document.  Please review these documents
    carefully, as they describe your rights and restrictions with respect
@@ -76,8 +77,8 @@ Table of Contents
    4.  Parameter Values  . . . . . . . . . . . . . . . . . . . . . .   5
      4.1.  Nonlinear Bijection . . . . . . . . . . . . . . . . . . .   5
      4.2.  Transformations . . . . . . . . . . . . . . . . . . . . .   6
-     4.3.  Key schedule  . . . . . . . . . . . . . . . . . . . . . .   6
-   5.  Basic encryption algorithm  . . . . . . . . . . . . . . . . .   7
+     4.3.  Key Schedule  . . . . . . . . . . . . . . . . . . . . . .   6
+   5.  Basic Encryption Algorithm  . . . . . . . . . . . . . . . . .   7
      5.1.  Encryption  . . . . . . . . . . . . . . . . . . . . . . .   7
      5.2.  Decryption  . . . . . . . . . . . . . . . . . . . . . . .   7
    6.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .   7
@@ -103,8 +104,6 @@ Table of Contents
    information transmission, processing and storage in computer-aided
    systems.
 
-   The cryptographic algorithms defined in this specification are
-   designed both for hardware and software implementation.  They comply
 
 
 
@@ -114,6 +113,8 @@ Dolmatov & Eremin-SolenikovExpires May 2, 2020                  [Page 2]
 Internet-Draft   GOST R 34.12-2015: Block Cipher "Magma"    October 2019
 
 
+   The cryptographic algorithms defined in this specification are
+   designed both for hardware and software implementation.  They comply
    with modern cryptographic requirements, and put no restrictions on
    the confidentiality level of the protected information.
 
@@ -159,8 +160,6 @@ Internet-Draft   GOST R 34.12-2015: Block Cipher "Magma"    October 2019
 
       block cipher: symmetric encipherment system with the property that
       the encryption algorithm operates on a block of plaintext, i.e. a
-      string of bits of a defined length, to yield a block of ciphertext
-      (Clause 2.7 of [ISO-IEC18033-1]),
 
 
 
@@ -169,6 +168,9 @@ Dolmatov & Eremin-SolenikovExpires May 2, 2020                  [Page 3]
 
 Internet-Draft   GOST R 34.12-2015: Block Cipher "Magma"    October 2019
 
+
+      string of bits of a defined length, to yield a block of ciphertext
+      (Clause 2.7 of [ISO-IEC18033-1]),
 
          Note: In GOST R 34.12-2015, it is established that the terms
          "block cipher" and "block encryption algorithm" are synonyms.
@@ -216,8 +218,6 @@ Internet-Draft   GOST R 34.12-2015: Block Cipher "Magma"    October 2019
       non-negative integer; substrings and string components are
       enumerated from right to left starting from zero,
 
-      U[*]W  direct (Cartesian) product of two sets U and W,
-
 
 
 
@@ -225,6 +225,7 @@ Dolmatov & Eremin-SolenikovExpires May 2, 2020                  [Page 4]
 
 Internet-Draft   GOST R 34.12-2015: Block Cipher "Magma"    October 2019
 
+      U[*]W  direct (Cartesian) product of two sets U and W,
 
         |A|  the number of components (the length) of a string A
       belonging to V* (if A is an empty string, then |A| = 0),
@@ -311,7 +312,7 @@ Internet-Draft   GOST R 34.12-2015: Block Cipher "Magma"    October 2019
    G^*[k]: V_32[*]V_32 -> V_64  G^*[k](a_1, a_0) = (g[k](a_0) (xor)
       a_1) || a_0, where k, a_0, a_1 belong to V_32.
 
-4.3.  Key schedule
+4.3.  Key Schedule
 
    Round keys K_i belonging to V_32, i=1, 2, ..., 32 are derived from
    key K=k_255||...||k_0 belonging to V_256, k_i belongs to V_1, i=0, 1,
@@ -338,7 +339,7 @@ Dolmatov & Eremin-SolenikovExpires May 2, 2020                  [Page 6]
 Internet-Draft   GOST R 34.12-2015: Block Cipher "Magma"    October 2019
 
 
-5.  Basic encryption algorithm
+5.  Basic Encryption Algorithm
 
 5.1.  Encryption
 
@@ -366,7 +367,7 @@ Internet-Draft   GOST R 34.12-2015: Block Cipher "Magma"    October 2019
 
    This entire document is about security considerations.
 
-   Unlike [RFC5830] (GOST 28147-89) and like [RFC7801] this
+   Unlike [RFC5830] (GOST 28147-89), but like [RFC7801] this
    specification does not define exact block modes which should be used
    together with updated Magma cipher.  One is free to select block
    modes depending on the protocol and necessity.

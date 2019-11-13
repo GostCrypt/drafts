@@ -69,13 +69,13 @@
 
     <abstract>
       <t>In addition to a new cipher with block length of n=128 bits (referred
-        as "Kyznyechik" and described in RFC 7801) Russian Federal standard
+        to as "Kyznyechik" and described in RFC 7801) Russian Federal standard
         GOST R 34.12-2015 includes an updated version of the block
         cipher with block length of n=64 bits and key length k=256 bits, which
-        is also referred as "Magma". The algorithm is an updated version of
-        older block cipher with block length of n=64 bits described in GOST
+        is also referred to as "Magma". The algorithm is an updated version of
+        an older block cipher with block length of n=64 bits described in GOST
         28147-89 (RFC 5830). This document is intended to be a source
-        of information about the updated version of 64-bit cipher. It may
+        of information about the updated version of the 64-bit cipher. It may
         facilitate the use of the block cipher in Internet applications by
         providing information for developers and users of GOST 64-bit
         cipher with the revised version of the cipher for encryption and
@@ -288,7 +288,7 @@ Pi'_7 = (1, 7, 14, 13, 0, 5, 8, 3, 4, 15, 10, 6, 9, 12, 11, 2);]]></artwork>
           </list></t>
       </section>
 
-      <section title="Key schedule">
+      <section title="Key Schedule">
         <t>Round keys K_i belonging to V_32, i=1, 2, ..., 32 are derived from
         key K=k_255||...||k_0 belonging to V_256, k_i belongs to V_1, i=0, 1,
         ..., 255, as follows:</t>
@@ -310,7 +310,7 @@ K_(i+24)=K_(9-i), i = 1, 2, ..., 8.]]></artwork>
       </section>
     </section>
 
-    <section title="Basic encryption algorithm">
+    <section title="Basic Encryption Algorithm">
       <section title="Encryption">
         <t>Depending on the values of round keys K_1,...,K_32, the encryption
         algorithm is a substitution E_(K_1,...,K_32) defined as follows:</t>
@@ -342,7 +342,7 @@ K_(i+24)=K_(9-i), i = 1, 2, ..., 8.]]></artwork>
 
     <section anchor="Security" title="Security Considerations">
       <t>This entire document is about security considerations.</t>
-      <t>Unlike <xref target="RFC5830" /> (GOST 28147-89) and like <xref
+      <t>Unlike <xref target="RFC5830" /> (GOST 28147-89), but like <xref
         target="RFC7801" /> this specification does not define exact block
         modes which should be used together with updated Magma cipher. One is
         free to select block modes depending on the protocol and necessity.</t>
