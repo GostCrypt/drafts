@@ -83,11 +83,11 @@ Table of Contents
      5.2.  Decryption  . . . . . . . . . . . . . . . . . . . . . . .   7
    6.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .   7
    7.  Security Considerations . . . . . . . . . . . . . . . . . . .   7
-   8.  References  . . . . . . . . . . . . . . . . . . . . . . . . .   7
-     8.1.  Normative References  . . . . . . . . . . . . . . . . . .   7
+   8.  References  . . . . . . . . . . . . . . . . . . . . . . . . .   8
+     8.1.  Normative References  . . . . . . . . . . . . . . . . . .   8
      8.2.  Informative References  . . . . . . . . . . . . . . . . .   8
-   Appendix A.  Test Examples  . . . . . . . . . . . . . . . . . . .   8
-     A.1.  Transformation t  . . . . . . . . . . . . . . . . . . . .   8
+   Appendix A.  Test Examples  . . . . . . . . . . . . . . . . . . .   9
+     A.1.  Transformation t  . . . . . . . . . . . . . . . . . . . .   9
      A.2.  Transformation g  . . . . . . . . . . . . . . . . . . . .   9
      A.3.  Key schedule  . . . . . . . . . . . . . . . . . . . . . .   9
      A.4.  Test Encryption . . . . . . . . . . . . . . . . . . . . .  10
@@ -117,6 +117,12 @@ Internet-Draft   GOST R 34.12-2015: Block Cipher "Magma"    October 2019
    designed both for hardware and software implementation.  They comply
    with modern cryptographic requirements, and put no restrictions on
    the confidentiality level of the protected information.
+
+   This document is intended to be a source of information about the
+   updated version of 64-bit cipher.  It may facilitate the use of the
+   block cipher in Internet applications by providing information for
+   developers and users of GOST 64-bit cipher with the revised version
+   of the cipher for encryption and decryption.
 
 2.  General Information
 
@@ -155,11 +161,6 @@ Internet-Draft   GOST R 34.12-2015: Block Cipher "Magma"    October 2019
       single invertible mapping of the set of fixed-length plaintext
       blocks into ciphertext blocks of the same length,
 
-      block: string of bits of a defined length (Clause 2.6 of
-      [ISO-IEC18033-1]),
-
-      block cipher: symmetric encipherment system with the property that
-      the encryption algorithm operates on a block of plaintext, i.e. a
 
 
 
@@ -168,7 +169,11 @@ Dolmatov & Eremin-SolenikovExpires May 2, 2020                  [Page 3]
 
 Internet-Draft   GOST R 34.12-2015: Block Cipher "Magma"    October 2019
 
+      block: string of bits of a defined length (Clause 2.6 of
+      [ISO-IEC18033-1]),
 
+      block cipher: symmetric encipherment system with the property that
+      the encryption algorithm operates on a block of plaintext, i.e. a
       string of bits of a defined length, to yield a block of ciphertext
       (Clause 2.7 of [ISO-IEC18033-1]),
 

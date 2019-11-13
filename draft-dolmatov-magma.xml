@@ -96,6 +96,12 @@
 	designed both for hardware and software implementation. They comply
 	with modern cryptographic requirements, and put no restrictions on the
 	confidentiality level of the protected information.</t>
+
+      <t>This document is intended to be a source of information about the
+        updated version of 64-bit cipher.  It may facilitate the use of the
+        block cipher in Internet applications by providing information for
+        developers and users of GOST 64-bit cipher with the revised version of
+        the cipher for encryption and decryption.</t>
     </section>
 
     <section title="General Information">
