@@ -334,6 +334,17 @@ GostR3410-2012-512-PublicKey ::= OCTET STRING (128).</artwork></figure></t>
       </section>
     </section>
 
+    <section title="Historical Considerations">
+      <t>Note that for the significant period of time there were no documents describing <spanx style="verb">GostR3410-2012-PublicKeyParameters</spanx>.
+        Several old implementations have used <spanx style="verb">GostR3410-2001-PublicKeyParameters</spanx> instead.
+        These implementations will return an error if <spanx style="verb">digestParamSet</spanx> field is not included into public key parameters.
+        Thus an implementation wishing to collaborate with old implementations might want to include <spanx style="verb">digestParamSet</spanx> equal to <spanx style="verb">id-tc26-digest-gost3411-12-512</spanx> if one of the following values is used as <spanx style="verb">publicKeyParamSet</spanx>:
+        <list style="symbols">
+          <t><spanx style="verb">id-tc26-gost-3410-12-512-paramSetA</spanx>,</t>
+          <t><spanx style="verb">id-tc26-gost-3410-12-512-paramSetB</spanx>.</t>
+      </list></t>
+    </section>
+
     <section anchor="IANA" title="IANA Considerations">
       <t>This memo includes no request to IANA.</t>
     </section>
