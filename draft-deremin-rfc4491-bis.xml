@@ -9,7 +9,7 @@
 <?rfc sortrefs="yes" ?>
 <?rfc compact="yes" ?>
 <?rfc subcompact="no" ?>
-<rfc category="info" docName="draft-deremin-rfc4491-bis-01" ipr="trust200902"
+<rfc category="info" docName="draft-deremin-rfc4491-bis-02" ipr="trust200902"
   updates="3279, 4491">
   <front>
     <title abbrev="PKIX: GOST R 34.10-2012, GOST R 34.11-2012">Using GOST R 34.10-2012 and GOST R 34.11-2012 algorithms with the Internet X.509 Public Key Infrastructure</title>
