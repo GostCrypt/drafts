@@ -13,7 +13,7 @@
   <front>
     <title abbrev="PKIX: GOST R 34.10-2012, GOST R 34.11-2012">Using GOST R 34.10-2012 and GOST R 34.11-2012 algorithms with the Internet X.509 Public Key Infrastructure</title>
 
-    <author fullname="Dmitry Eremin-Solenikov" initials="D." surname="Eremin-Solenikov" role="editor" >
+    <author fullname="Dmitry Baryshkov" initials="D." surname="Baryshkov" role="editor" >
       <organization>Mentor Graphics (Ireland) Ltd.</organization>
       <address>
         <postal>
