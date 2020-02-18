@@ -9,8 +9,7 @@
 <?rfc sortrefs="yes" ?>
 <?rfc compact="yes" ?>
 <?rfc subcompact="no" ?>
-<rfc category="info" docName="draft-deremin-rfc4491-bis-02" ipr="trust200902"
-  updates="3279, 4491">
+<rfc category="info" docName="draft-deremin-rfc4491-bis-03" ipr="trust200902">
   <front>
     <title abbrev="PKIX: GOST R 34.10-2012, GOST R 34.11-2012">Using GOST R 34.10-2012 and GOST R 34.11-2012 algorithms with the Internet X.509 Public Key Infrastructure</title>
 
@@ -57,7 +56,7 @@
     </author>
 
 
-    <date month="" year="2019"/>
+    <date month="" year="2020"/>
 
     <area>Security</area>
 
@@ -67,7 +66,7 @@
     <keyword>PKI</keyword>
 
     <abstract>
-      <t>This document updates RFC 3279 and RFC 4491. It describes encoding
+      <t>This document describes encoding
         formats, identifiers, and parameter formats for the algorithms GOST R
         34.10-2012 and GOST R 34.11-2012 for use in Internet X.509 Public Key
         Infrastructure (PKI).</t>
@@ -76,7 +75,7 @@
 
   <middle>
     <section title="Introduction">
-      <t>This document supplements <xref target="RFC3279"/>.  It describes the
+      <t>This document describes the
         conventions for using the <xref target="GOSTR3410-2012">GOST R
           34.10-2012</xref> (see <xref target="RFC7091" />) signature
         algorithm and <xref target="GOSTR3411-2012"> GOST R 34.11-2012</xref>
@@ -351,7 +350,7 @@ GostR3410-2012-512-PublicKey ::= OCTET STRING (128).</artwork></figure></t>
 
     <section title="Security Considerations">
       <t>It is RECOMMENDED that applications verify signature values and subject 
-        public keys to conform to <xref target="RFC7091" /> standard prior to their use.</t>
+	      public keys to conform to <xref target="GOSTR3410-2012" /> standard (<xref target="RFC7091" />) prior to their use.</t>
       
       <t>It is RECOMMENDED that CAs and applications make sure that the private key 
         for creating signatures is not used for more than its allowed validity period 
@@ -369,7 +368,6 @@ GostR3410-2012-512-PublicKey ::= OCTET STRING (128).</artwork></figure></t>
       <?rfc include='reference.RFC.7091.xml'?>
       <?rfc include='reference.RFC.6986.xml'?>
       <?rfc include='reference.RFC.5280.xml'?>
-      <?rfc include='reference.RFC.3279.xml'?>
       <?rfc include='reference.RFC.5652.xml'?>
       <?rfc include='reference.RFC.2119.xml'?>
       <?rfc include='reference.RFC.4357.xml'?>
