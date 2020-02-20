@@ -9,7 +9,7 @@
 <?rfc sortrefs="yes" ?>
 <?rfc compact="yes" ?>
 <?rfc subcompact="no" ?>
-<rfc category="info" docName="draft-deremin-rfc4491-bis-03" ipr="trust200902">
+<rfc category="info" docName="draft-deremin-rfc4491-bis-02" ipr="trust200902">
   <front>
     <title abbrev="PKIX: GOST R 34.10-2012, GOST R 34.11-2012">Using GOST R 34.10-2012 and GOST R 34.11-2012 algorithms with the Internet X.509 Public Key Infrastructure</title>
 
@@ -730,7 +730,7 @@ RstQv19CIaADrT0XJ1PJSpw3ox0gQaoo0vGrFIKAzZ7Vb+2kGXQFNVSkJ2e4OtBD
       <section title="GOST R 34.10-2012 TC26-256-A parameters (256 bit private key length)">
         <t>This example uses curve defined in Section A.2 of <xref target="RFC7836" />.</t>
         <t><figure><preamble>Private key is</preamble>
-            <artwork>d = 0x7A929ADE789BB9BE10ED359DD39A72C11B60961F49397EEE1D19CE9891EC3B28</artwork>
+            <artwork>d = 0x3A929ADE789BB9BE10ED359DD39A72C10B87C83F80BE18B85C041F4325B62EC1</artwork>
         </figure></t>
         <t><figure><preamble>Public key is</preamble>
             <artwork>X = 0x99C3DF265EA59350640BA69D1DE04418AF3FEA03EC0F85F2DD84E8BED4952774
