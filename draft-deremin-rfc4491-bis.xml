@@ -9,7 +9,7 @@
 <?rfc sortrefs="yes" ?>
 <?rfc compact="yes" ?>
 <?rfc subcompact="no" ?>
-<rfc category="info" docName="draft-deremin-rfc4491-bis-04" ipr="trust200902">
+<rfc category="info" docName="draft-deremin-rfc4491-bis-05" ipr="trust200902">
   <front>
     <title abbrev="PKIX: GOST R 34.10-2012, GOST R 34.11-2012">Using GOST R 34.10-2012 and GOST R 34.11-2012 algorithms with the Internet X.509 Public Key Infrastructure</title>
 
@@ -106,7 +106,7 @@
         function with 256-bit hash code is:</t>
       <t><figure><artwork><![CDATA[id-tc26-signwithdigest-gost3410-12-256 OBJECT IDENTIFIER ::=
     { iso(1) member-body(2) ru(643) rosstandart(7) tc26(1)
-        algorithms(1) signwithdigest(3) gost3410-12-256(2)}]]>.</artwork></figure></t>
+        algorithms(1) signwithdigest(3) gost3410-12-256(2)}]]></artwork></figure></t>
       
       <t>GOST R 34.10-2012 signature algorithm with 256-bit key length generates a digital
         signature in the form of two 256-bit numbers, r and s.  Its octet
@@ -120,7 +120,7 @@
 
       <t><figure><artwork><![CDATA[id-tc26-signwithdigest-gost3410-12-512 OBJECT IDENTIFIER ::=
     { iso(1) member-body(2) ru(643) rosstandart(7) tc26(1)
-        algorithms(1) signwithdigest(3) gost3410-12-512(3)}]]>.</artwork></figure></t>
+        algorithms(1) signwithdigest(3) gost3410-12-512(3)}]]></artwork></figure></t>
       
       <t>GOST R 34.10-2012 signature algorithm with 512-bit key length generates a digital
         signature in the form of two 512-bit numbers, r and s.  Its octet
@@ -149,16 +149,16 @@
     <section title="Hash functions support" anchor="streebog">
       <t>The ASN.1 object identifier used to identify GOST R 34.11-2012 hash
         function with 256-bit hash code is:</t>
-      <t><figure><artwork><![CDATA[id-tc26-digest-gost3411-12-256 OBJECT IDENTIFIER ::=
+      <t><figure><artwork><![CDATA[id-tc26-gost3411-12-256 OBJECT IDENTIFIER ::=
     { iso(1) member-body(2) ru(643) rosstandart(7) tc26(1)
-        algorithms(1) digest(2) gost3411-12-256(2)}]]>.</artwork></figure></t>
+        algorithms(1) digest(2) gost3411-12-256(2)}]]></artwork></figure></t>
 
       <t>The ASN.1 object identifier used to identify GOST R 34.11-2012 hash
         function with 512-bit hash code is:</t>
 
-      <t><figure><artwork><![CDATA[id-tc26-digest-gost3411-12-512 OBJECT IDENTIFIER ::=
+      <t><figure><artwork><![CDATA[id-tc26-gost3411-12-512 OBJECT IDENTIFIER ::=
     { iso(1) member-body(2) ru(643) rosstandart(7) tc26(1)
-        algorithms(1) digest(2) gost3411-12-512(3)}]]>.</artwork></figure></t>
+        algorithms(1) digest(2) gost3411-12-512(3)}]]></artwork></figure></t>
 
       <t>When either of these OID is used as the algorithm field in an
         AlgorithmIdentifier structure, the encoding MUST omit the parameters
@@ -172,14 +172,14 @@
 
         <t><figure><artwork><![CDATA[id-tc26-gost3410-12-256 OBJECT IDENTIFIER ::=
     { iso(1) member-body(2) ru(643) rosstandart(7) tc26(1)
-        algorithms(1) sign(1) gost3410-12-256(1)}]]>.</artwork></figure></t>
+        algorithms(1) sign(1) gost3410-12-256(1)}]]></artwork></figure></t>
 
         <t>GOST R 34.10-2012 public keys with 512 bits private key length are
           identified by the following OID:</t>
 
         <t><figure><artwork><![CDATA[id-tc26-gost3410-12-512 OBJECT IDENTIFIER ::=
     { iso(1) member-body(2) ru(643) rosstandart(7) tc26(1)
-        algorithms(1) sign(1) gost3410-12-512(2)}]]>.</artwork></figure></t>
+        algorithms(1) sign(1) gost3410-12-512(2)}]]></artwork></figure></t>
       </section>
 
       <section title="Public Key parameters">
@@ -193,7 +193,7 @@
     {
         publicKeyParamSet OBJECT IDENTIFIER,
         digestParamSet OBJECT IDENTIFIER OPTIONAL
-    }]]></artwork></figure>.</t>
+    }]]></artwork></figure></t>
         <t>where:
           <list style="symbols">
             <t><spanx style="verb">publicKeyParamSet</spanx> - public key parameters identifier for GOST R 34.10-2012 (see Sections 5.1 and 5.2 of <xref target="RFC7836"/> or <xref target="pkparamsBCD" />) or GOST R 34.10-2001 (see Section 8.4 of <xref target="RFC4357"/>) parameters.</t>
@@ -532,19 +532,19 @@ END -- GostR3410-2012-PKISyntax]]></artwork></figure></t>
       <t><figure><artwork><![CDATA[id-tc26-gost-3410-2012-256-paramSetB OBJECT IDENTIFIER ::=
     { iso(1) member-body(2) ru(643) rosstandart(7) tc26(1)
         ru(643) rosstandart(7) tc26(1) constants(2) sign-constants(1)
-        gost-3410-12-256-constants(1) paramSetB(2)}]]>.</artwork></figure></t>
+        gost-3410-12-256-constants(1) paramSetB(2)}]]></artwork></figure></t>
        <t>The elliptic curve of this parameter set is the same as of 
          id-GostR3410-2001-CryptoPro-A-ParamSet which can be found in <xref target="RFC4357" />.</t>
       <t><figure><artwork><![CDATA[id-tc26-gost-3410-2012-256-paramSetC OBJECT IDENTIFIER ::=
     { iso(1) member-body(2) ru(643) rosstandart(7) tc26(1)
         ru(643) rosstandart(7) tc26(1) constants(2) sign-constants(1)
-        gost-3410-12-256-constants(1) paramSetC(3)}]]>.</artwork></figure></t>
+        gost-3410-12-256-constants(1) paramSetC(3)}]]></artwork></figure></t>
        <t>The elliptic curve of this parameter set is the same as of 
          id-GostR3410-2001-CryptoPro-B-ParamSet which can be found in <xref target="RFC4357" />.</t>
       <t><figure><artwork><![CDATA[id-tc26-gost-3410-2012-256-paramSetD OBJECT IDENTIFIER ::=
     { iso(1) member-body(2) ru(643) rosstandart(7) tc26(1)
         ru(643) rosstandart(7) tc26(1) constants(2) sign-constants(1)
-        gost-3410-12-256-constants(1) paramSetD(4)}]]>.</artwork></figure></t>
+        gost-3410-12-256-constants(1) paramSetD(4)}]]></artwork></figure></t>
        <t>The elliptic curve of this parameter set is the same as of 
          id-GostR3410-2001-CryptoPro-C-ParamSet which can be found in <xref target="RFC4357" />.</t>
     </section>
