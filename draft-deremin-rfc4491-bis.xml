@@ -11,7 +11,7 @@
 <?rfc subcompact="no" ?>
 <rfc category="info" docName="draft-deremin-rfc4491-bis-06" ipr="trust200902">
   <front>
-    <title abbrev="PKIX: GOST R 34.10-2012, GOST R 34.11-2012">Using GOST R 34.10-2012 and GOST R 34.11-2012 algorithms with the Internet X.509 Public Key Infrastructure</title>
+    <title abbrev="PKIX: GOST R 34.10-2012, 34.11-2012">Using GOST R 34.10-2012 and GOST R 34.11-2012 algorithms with the Internet X.509 Public Key Infrastructure</title>
 
     <author fullname="Dmitry Baryshkov" initials="D." surname="Baryshkov" role="editor" >
       <organization>Mentor Graphics (Ireland) Ltd.</organization>
