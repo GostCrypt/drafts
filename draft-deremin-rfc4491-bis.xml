@@ -89,9 +89,10 @@
 
       <section title="Requirements Language">
         <t>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
-          "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this
-          document are to be interpreted as described in <xref target="RFC2119"
-            />.</t>
+          "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and
+          "OPTIONAL" in this document are to be interpreted as described in
+          BCP 14 <xref target="RFC2119"/> <xref target="RFC8174"/>
+          when, and only when, they appear in all capitals, as shown here.</t>
       </section>
     </section>
 
@@ -383,6 +384,7 @@ GostR3410-2012-512-PublicKey ::= OCTET STRING (SIZE (128))</artwork></figure></t
       <?rfc include='reference.RFC.2119.xml'?>
       <?rfc include='reference.RFC.4357.xml'?>
       <?rfc include='reference.RFC.7836.xml'?>
+      <?rfc include='reference.RFC.8174.xml'?>
     </references>
     <references title="Informative References">
       <reference anchor="GOSTR3410-2012">
