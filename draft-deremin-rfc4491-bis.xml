@@ -329,7 +329,7 @@ GostR3410-2012-512-PublicKey ::= OCTET STRING (SIZE (128))</artwork></figure></t
   signTool     UTF8String SIZE(1..200),
   cATool       UTF8String SIZE(1..200),
   signToolCert UTF8String SIZE(1..100),
-  cAToolCert   UTF8String SIZE(1..100) }, </artwork>
+  cAToolCert   UTF8String SIZE(1..100) }</artwork>
         </figure></t>
         <t>where:<list style="symbols">
             <t><spanx style="verb">signTool</spanx> identifies tools used to
