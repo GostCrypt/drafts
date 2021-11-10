@@ -229,8 +229,8 @@
           OCTET STRING. This encoding SHALL be used as the content (i.e., the
           value) of the subjectPublicKey field (a BIT STRING) of
           SubjectPublicKeyInfo structure.</t>
-        <t><figure><artwork>GostR3410-2012-256-PublicKey ::= OCTET STRING (64),
-GostR3410-2012-512-PublicKey ::= OCTET STRING (128).</artwork></figure></t>
+        <t><figure><artwork>GostR3410-2012-256-PublicKey ::= OCTET STRING (SIZE(64))
+GostR3410-2012-512-PublicKey ::= OCTET STRING (SIZE (128))</artwork></figure></t>
         <t><spanx style="verb">GostR3410-2012-256-PublicKey</spanx> MUST
           contain 64 octets, where the first 32 octets contain the
           little-endian representation of <spanx style="verb">x</spanx> and the
@@ -271,22 +271,22 @@ GostR3410-2012-512-PublicKey ::= OCTET STRING (128).</artwork></figure></t>
       <section title="Distinguished Name additions">
         <t><figure>
             <preamble>OGRN is the main state registration number of juridical entities.</preamble>
-            <artwork>OGRN ::= NUMERIC STRING 13</artwork>
+            <artwork>OGRN ::= NUMERIC STRING (SIZE(13))</artwork>
             <postamble>Corresponding OID is <spanx style="verb">1.2.643.100.1</spanx>.</postamble>
         </figure></t>
         <t><figure>
             <preamble>SNILS is the individual insurance account number.</preamble>
-            <artwork>SNILS ::= NUMERIC STRING 11</artwork>
+            <artwork>SNILS ::= NUMERIC STRING (SIZE(11))</artwork>
             <postamble>Corresponding OID is <spanx style="verb">1.2.643.100.3</spanx>.</postamble>
         </figure></t>
         <t><figure>
-            <preamble>OGRNIP is the main state registration number of individual enterpreneurs.</preamble>
-            <artwork>OGRNIP ::= NUMERIC STRING 15</artwork>
+            <preamble>OGRNIP is the main state registration number of individual enterpreneurs (sole traders).</preamble>
+            <artwork>OGRNIP ::= NUMERIC STRING (SIZE(15))</artwork>
             <postamble>Corresponding OID is <spanx style="verb">1.2.643.100.5</spanx>.</postamble>
         </figure></t>
         <t><figure>
             <preamble>INN is the individual taxpayer number (ITN).</preamble>
-            <artwork>INN ::= NUMERIC STRING 12</artwork>
+            <artwork>INN ::= NUMERIC STRING (SIZE(12))</artwork>
             <postamble>Corresponding OID is <spanx style="verb">1.2.643.3.131.1.1</spanx>.</postamble>
         </figure></t>
       </section>
