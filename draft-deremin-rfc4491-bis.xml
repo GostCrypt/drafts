@@ -280,9 +280,20 @@ GostR3410-2012-512-PublicKey ::= OCTET STRING (SIZE (128))</artwork></figure></t
             <postamble>Corresponding OID is <spanx style="verb">1.2.643.100.3</spanx>.</postamble>
         </figure></t>
         <t><figure>
+            <preamble>INNLE is the individual taxpayer number (ITN) of the Legal Entity.</preamble>
+            <artwork>INNLE ::= NUMERIC STRING (SIZE(10))</artwork>
+            <postamble>Corresponding OID is <spanx style="verb">1.2.643.100.4</spanx>.</postamble>
+        </figure></t>
+        <t><figure>
             <preamble>OGRNIP is the main state registration number of individual enterpreneurs (sole traders).</preamble>
             <artwork>OGRNIP ::= NUMERIC STRING (SIZE(15))</artwork>
             <postamble>Corresponding OID is <spanx style="verb">1.2.643.100.5</spanx>.</postamble>
+        </figure></t>
+        <t><figure>
+            <preamble>IdentificationKind represents the way the receiver of the certificate was identified by the CA.</preamble>
+            <artwork>IdentificationKind ::= INTEGER { personal(O), remote_cert(1),
+            remote_passport(2), remote_system(3) }</artwork>
+            <postamble>Corresponding OID is <spanx style="verb">1.2.643.100.114</spanx>.</postamble>
         </figure></t>
         <t><figure>
             <preamble>INN is the individual taxpayer number (ITN).</preamble>
