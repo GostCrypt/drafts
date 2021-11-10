@@ -438,15 +438,19 @@ BEGIN
     id-tc26-sign OBJECT IDENTIFIER ::=
     { id-tc26 algorithms(1) sign(1) }
 
-    -- Signature algorithm parameters
+    -- Hash algorithm
+    id-tc26-digest OBJECT IDENTIFIER ::=
+    { id-tc26 algorithms(1) digest(2) }
+
+    -- Public key identifiers
     id-tc26-sign-constants OBJECT IDENTIFIER ::=
     { id-tc26 constants(2) sign(1) }
 
-    -- GOST R 34.10-2012 / 256 bits signature algorithm parameters
+    -- Public key algorithm GOST R 34.10-2012 / 256 bits identifiers
     id-tc26-gost-3410-2012-256-constants OBJECT IDENTIFIER ::=
     { id-tc26-sign-constants gost-3410-2012-256(1) }
 
-    -- GOST R 34.10-2012 / 512 bits signature algorithm parameters
+    -- Public key algorithm GOST R 34.10-2012 / 512 bits identifiers
     id-tc26-gost-3410-2012-512-constants OBJECT IDENTIFIER ::=
     { id-tc26-sign-constants gost-3410-2012-512(2) }
 
@@ -457,6 +461,18 @@ BEGIN
     -- GOST R 34.10-2012 / 512 bits signature algorithm
     id-tc26-gost3410-2012-512 OBJECT IDENTIFIER ::=
     { id-tc26-sign gost3410-2012-512(2) }
+
+    -- GOST R 34.11-2012 / 256 bits hash algorithm
+    id-tc26-gost3411-12-256 OBJECT IDENTIFIER ::=
+    { id-tc26-digest gost3411-12-256(2)}
+
+    -- GOST R 34.11-2012 / 512 bits hash algorithm
+    id-tc26-gost3411-12-512 OBJECT IDENTIFIER ::=
+    { id-tc26-digest gost3411-12-512(3)}
+
+    -- GOST R 34.10-2012 / GOST R 34.11-2012 sign/hash algorithm
+    id-tc26-signwithdigest OBJECT IDENTIFIER ::=
+    { id-tc26 algorithms(1) signwithdigest(3) }
 
     -- Signature & hash algorithm GOST R 34.10-2012 / 256 bits
     -- with GOST R 34.11-2012
@@ -522,7 +538,108 @@ BEGIN
             digestParamSet OBJECT IDENTIFIER OPTIONAL
             }
 
-END -- GostR3410-2012-PKISyntax]]></artwork></figure></t>
+END -- GostR3410-2012-PKISyntax
+]]></artwork></figure></t>
+    </section>
+
+    <section title="GostR3410-2012-RuCertsSyntax">
+      <t><figure><artwork><![CDATA[
+RuStrongCertsSyntax
+    { iso(1) member-body(2) ru(643) rosstandart(7)
+      tc26(1) modules(0) ruStrongCertsSyntax(6) }
+
+DEFINITIONS ::=
+BEGIN
+-- EXPORTS All --
+
+    id-ca OBJECT IDENTIFIER ::=
+        { iso(1) member-body(2) ru(643) ca(3) }
+
+    id-fss OBJECT IDENTIFIER ::=
+        { iso(1) member-body(2) ru(643) fss(100) }
+
+    id-fns OBJECT IDENTIFIER ::=
+        { id-ca fns(131) }
+
+    -- The main state registration number of juridical entities.
+    OGRN ::= NumericString(SIZE (13))
+
+    id-ORGN OBJECT IDENTIFIER ::=
+         { id-fss orgn(1) }
+
+    --  The individual insurance account number
+    SNILS ::= NumericString(SIZE (11))
+
+    id-SNILS OBJECT IDENTIFIER ::=
+         { id-fss snils(3) }
+
+    -- The main state registration number of
+    -- individual enterpreneurs (sole traders).
+    OGRNIP ::= NumericString(SIZE (15))
+
+    id-OGRNIP OBJECT IDENTIFIER ::=
+         { id-fss ogrnip(5) }
+
+    id-class OBJECT IDENTIFIER ::=
+         { id-fss class(113) }
+
+    id-class-kc1 OBJECT IDENTIFIER ::=
+         { id-class kc1(1) }
+
+    id-class-kc2 OBJECT IDENTIFIER ::=
+         { id-class kc2(2) }
+
+    id-class-kc3 OBJECT IDENTIFIER ::=
+         { id-class kc3(3) }
+
+    id-class-kb1 OBJECT IDENTIFIER ::=
+         { id-class kb1(4) }
+
+    id-class-kb2 OBJECT IDENTIFIER ::=
+         { id-class kb2(5) }
+
+    id-class-ka OBJECT IDENTIFIER ::=
+         { id-class ka(6) }
+
+    -- The individual taxpayer number (ITN).
+    INN ::= NumericString(SIZE (12))
+
+    id-INN OBJECT IDENTIFIER ::=
+         { id-fns ids(1) inn(1) }
+
+    -- The organization taxpayer number (OTN).
+    INNLE ::= NumericString(SIZE (10))
+
+    id-INNLE OBJECT IDENTIFIER ::=
+         { id-fss innle(4) }
+
+    -- The token or software type used by certificate owner
+    SubjectSignTool ::= UTF8String SIZE(1..200)
+
+    id-SubjectSignTool OBJECT IDENTIFIER ::=
+         { id-fss subjectSignTool(111) }
+
+    -- the tools used to generate key pair and tools used by CA
+    -- to sign certificate
+    IssuerSignTool ::= SEQUENCE {
+         signTool     UTF8String SIZE(1..200),
+         cATool       UTF8String SIZE(1..200),
+         signToolCert UTF8String SIZE(1..100),
+         cAToolCert   UTF8String SIZE(1..100) }
+
+    id-IssuerSignTool OBJECT IDENTIFIER ::=
+         { id-fss issuerSignTool(112) }
+
+    -- The method of identifying owner, when it applies/receives
+    -- certificate in the CA
+    IdentificationKind ::= INTEGER { personal(O), remote_cert(1),
+         remote_passport(2), remote_system(3) }
+
+    id-IdentificationKind OBJECT IDENTIFIER ::=
+         { id-fss identificationKind(114) }
+
+END -- RuStrongCertsSyntax
+]]></artwork></figure></t>
     </section>
 
     <section title="Public key parameters" anchor="pkparamsBCD">
