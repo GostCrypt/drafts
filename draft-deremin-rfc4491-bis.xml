@@ -561,8 +561,7 @@ END -- GostR3410-2012-PKISyntax
     </section>
 
     <section title="GostR3410-2012-RuCertsSyntax">
-      <t><figure><artwork><![CDATA[
-RuStrongCertsSyntax
+      <t><figure><artwork><![CDATA[RuStrongCertsSyntax
     { iso(1) member-body(2) ru(643) rosstandart(7)
       tc26(1) modules(0) ruStrongCertsSyntax(6) }
 
