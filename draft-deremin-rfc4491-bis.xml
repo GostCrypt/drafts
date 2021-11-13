@@ -650,7 +650,7 @@ BEGIN
 
     -- The method of identifying owner, when it applies/receives
     -- certificate in the CA
-    IdentificationKind ::= INTEGER { personal(O), remote_cert(1),
+    IdentificationKind ::= INTEGER { personal(0), remote_cert(1),
          remote_passport(2), remote_system(3) }
 
     id-IdentificationKind OBJECT IDENTIFIER ::=
