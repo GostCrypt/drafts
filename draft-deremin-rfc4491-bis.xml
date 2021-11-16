@@ -667,7 +667,8 @@ END -- RuStrongCertsSyntax
     { iso(1) member-body(2) ru(643) rosstandart(7) tc26(1) constants(2)
         sign-constants(1) gost-3410-12-256-constants(1) paramSetB(2)}]]></artwork></figure></t>
        <t>The elliptic curve of this parameter set is the same as of 
-         id-GostR3410-2001-CryptoPro-A-ParamSet which can be found in <xref target="RFC4357" />.</t>
+         id-GostR3410-2001-CryptoPro-A-ParamSet (and id-GostR3410-2001-CryptoPro-XchA-ParamSet)
+         which can be found in <xref target="RFC4357" />.</t>
       <t><figure><artwork><![CDATA[id-tc26-gost-3410-2012-256-paramSetC OBJECT IDENTIFIER ::=
     { iso(1) member-body(2) ru(643) rosstandart(7) tc26(1) constants(2)
         sign-constants(1) gost-3410-12-256-constants(1) paramSetC(3)}]]></artwork></figure></t>
@@ -677,7 +678,8 @@ END -- RuStrongCertsSyntax
     { iso(1) member-body(2) ru(643) rosstandart(7) tc26(1) constants(2)
         sign-constants(1) gost-3410-12-256-constants(1) paramSetD(4)}]]></artwork></figure></t>
        <t>The elliptic curve of this parameter set is the same as of 
-         id-GostR3410-2001-CryptoPro-C-ParamSet which can be found in <xref target="RFC4357" />.</t>
+         id-GostR3410-2001-CryptoPro-C-ParamSet (and id-GostR3410-2001-CryptoPro-XchB-ParamSet)
+         which can be found in <xref target="RFC4357" />.</t>
     </section>
 
     <section title="Test Examples">
