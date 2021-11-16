@@ -248,6 +248,8 @@ GostR3410-2012-512-PublicKey ::= OCTET STRING (SIZE (128))</artwork></figure></t
           <list style="symbols">
             <t><spanx style="verb">digitalSignature</spanx> (0),</t>
             <t><spanx style="verb">contentCommitment</spanx> (1),</t>
+            <t><spanx style="verb">keyEncipherment</spanx> (2),</t>
+            <t><spanx style="verb">dataEncipherment</spanx> (3),</t>
             <t><spanx style="verb">keyAgreement</spanx> (4),</t>
             <t><spanx style="verb">keyCertSign</spanx> (5),</t>
             <t><spanx style="verb">cRLSign</spanx> (6),</t>
@@ -263,11 +265,6 @@ GostR3410-2012-512-PublicKey ::= OCTET STRING (SIZE (128))</artwork></figure></t
           flags <spanx style="verb">encipherOnly</spanx> and <spanx
           style="verb">decipherOnly</spanx> flags MUST NOT be present
           simultaneously.</t>
-        <t>The following values SHOULD NOT be used in a certificate with GOST R 34.10-2012 public key:
-          <list style="symbols">
-            <t><spanx style="verb">keyEncipherment</spanx> (2),</t>
-            <t><spanx style="verb">dataEncipherment</spanx> (3),</t>
-        </list></t>
       </section>
     </section>
 
@@ -359,6 +356,9 @@ GostR3410-2012-512-PublicKey ::= OCTET STRING (SIZE (128))</artwork></figure></t
           <t><spanx style="verb">id-tc26-gost-3410-12-512-paramSetA</spanx>,</t>
           <t><spanx style="verb">id-tc26-gost-3410-12-512-paramSetB</spanx>.</t>
       </list></t>
+      <t>Note, that usage of <spanx style="verb">keyEncipherment</spanx> and <spanx style="verb">dataEncipherment</spanx> values for the
+        <spanx style="verb">KeyUsage</spanx> extension is not fully defined for the GOST R 34.10-2012 public
+        keys, so they SHOULD be used with additional care.</t>
     </section>
 
     <section anchor="IANA" title="IANA Considerations">
