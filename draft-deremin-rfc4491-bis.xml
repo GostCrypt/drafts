@@ -202,6 +202,14 @@
           </list>
         </t>
 
+        <t>The following values when used as <spanx style="verb">publicKeyParamSet</spanx> define
+          test public key parameter sets and MUST NOT be used outside of testing scenarios:
+          <list style="symbols">
+            <t><spanx style="verb">id-GostR3410-2001-TestParamSet</spanx>,</t>
+            <t><spanx style="verb">id-tc26-gost-3410-2012-512-paramSetTest</spanx></t>
+          </list>
+        </t>
+
         <t>The field digestParamSet:
           <list style="symbols">
             <t>SHOULD be omitted if GOST R 34.10-2012 signature algorithm is used with 512-bit key length;</t>
