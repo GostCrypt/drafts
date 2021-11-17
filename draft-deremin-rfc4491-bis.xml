@@ -547,7 +547,7 @@ BEGIN
     -- Public key GOST R 34.10-2012 / 512 bits
     GostR3410-2012-512-PublicKey ::= OCTET STRING (SIZE (128))
     -- Public key GOST R 34.10-2012
-    GostR3410-PublicKey ::= OCTET STRING (SIZE (64 | 128))
+    GostR3410-2012-PublicKey ::= OCTET STRING (SIZE (64 | 128))
 
     -- Public key parameters GOST R 34.10-2012
     GostR3410-2012-PublicKeyParameters ::=
