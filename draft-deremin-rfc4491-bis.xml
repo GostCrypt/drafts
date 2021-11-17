@@ -323,16 +323,16 @@ GostR3410-2012-512-PublicKey ::= OCTET STRING (SIZE (128))</artwork></figure></t
       </section>
       <section title="Subject Sign Tool">
         <t><figure><preamble>To denote the token or software type used by certificate owner following non-critical <spanx style="verb">SubjectSignTool</spanx> extension with OID <spanx style="verb">1.2.643.100.111</spanx> should be included. It is defined as</preamble>
-            <artwork>SubjectSignTool ::= UTF8String SIZE(1..200) .</artwork>
+            <artwork>SubjectSignTool ::= UTF8String(SIZE(1..200)) .</artwork>
         </figure></t>
       </section>
       <section title="Issuer Sign Tool">
         <t><figure><preamble>To denote the tools used to generate key pair and tools used by CA to sign certificate following non-critical <spanx style="verb">IssuerSignTool</spanx> extension with OID <spanx style="verb">1.2.643.100.112</spanx> should be included. It is defined as</preamble>
             <artwork>IssuerSignTool ::= SEQUENCE {
-  signTool     UTF8String SIZE(1..200),
-  cATool       UTF8String SIZE(1..200),
-  signToolCert UTF8String SIZE(1..100),
-  cAToolCert   UTF8String SIZE(1..100) }</artwork>
+  signTool     UTF8String(SIZE(1..200)),
+  cATool       UTF8String(SIZE(1..200)),
+  signToolCert UTF8String(SIZE(1..100)),
+  cAToolCert   UTF8String(SIZE(1..100)) }</artwork>
         </figure></t>
         <t>where:<list style="symbols">
             <t><spanx style="verb">signTool</spanx> identifies tools used to
@@ -631,7 +631,7 @@ BEGIN
          { id-fss innle(4) }
 
     -- The token or software type used by certificate owner
-    SubjectSignTool ::= UTF8String SIZE(1..200)
+    SubjectSignTool ::= UTF8String(SIZE(1..200))
 
     id-SubjectSignTool OBJECT IDENTIFIER ::=
          { id-fss subjectSignTool(111) }
@@ -639,10 +639,10 @@ BEGIN
     -- the tools used to generate key pair and tools used by CA
     -- to sign certificate
     IssuerSignTool ::= SEQUENCE {
-         signTool     UTF8String SIZE(1..200),
-         cATool       UTF8String SIZE(1..200),
-         signToolCert UTF8String SIZE(1..100),
-         cAToolCert   UTF8String SIZE(1..100) }
+         signTool     UTF8String(SIZE(1..200)),
+         cATool       UTF8String(SIZE(1..200)),
+         signToolCert UTF8String(SIZE(1..100)),
+         cAToolCert   UTF8String(SIZE(1..100)) }
 
     id-IssuerSignTool OBJECT IDENTIFIER ::=
          { id-fss issuerSignTool(112) }
