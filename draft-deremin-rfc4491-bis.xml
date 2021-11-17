@@ -380,6 +380,14 @@ GostR3410-2012-512-PublicKey ::= OCTET STRING (SIZE (128))</artwork></figure></t
       <t>It is RECOMMENDED that CAs and applications make sure that the private key 
         for creating signatures is not used for more than its allowed validity period 
         (typically 15 months for GOST R 34.10-2012 algorithm).</t>
+
+      <t>Test parameter sets (<spanx style="verb">id-GostR3410-2001-TestParamSet</spanx>
+        and <spanx style="verb">id-tc26-gost-3410-2012-512-paramSetTest</spanx>) MUST NOT
+        be used outside of testing scenarios.
+        Use or parameter sets not described herein
+        is NOT RECOMMENDED. When different parameters are used, it is
+        RECOMMENDED that they be subjected to examination by an authorized
+        agency with approved methods of cryptographic analysis.</t>
       
       <t>For security discussion concerning use of algorithm parameters, see <xref target="ANS17" /> 
         and the Security Considerations sections in <xref target="RFC4357" />, <xref target="RFC7836" />.</t>
