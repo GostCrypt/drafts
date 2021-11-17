@@ -209,7 +209,7 @@
           </list>
         </t>
 
-        <t>The field digestParamSet:
+        <t>The field <spanx style="verb">digestParamSet</spanx>:
           <list style="symbols">
             <t>SHOULD be omitted if GOST R 34.10-2012 signature algorithm is used with 512-bit key length;</t>
             <t>MUST be present and must be equal to <spanx style="verb">id-tc26-digest-gost3411-12-256</spanx> if one of the following values is used as <spanx style="verb">publicKeyParamSet</spanx>:
