@@ -197,7 +197,7 @@
     }]]></artwork></figure></t>
         <t>where:
           <list style="symbols">
-            <t><spanx style="verb">publicKeyParamSet</spanx> - public key parameters identifier for GOST R 34.10-2012 (see Sections 5.1 and 5.2 of <xref target="RFC7836"/> or <xref target="pkparamsBCD" />) or GOST R 34.10-2001 (see Section 8.4 of <xref target="RFC4357"/>) parameters.</t>
+            <t><spanx style="verb">publicKeyParamSet</spanx> - public key parameters identifier for GOST R 34.10-2012 (see Sections 5.1.1 and 5.2.1 of <xref target="RFC7836"/> or <xref target="pkparamsBCD" />) or GOST R 34.10-2001 (see Section 8.4 of <xref target="RFC4357"/>) parameters.</t>
             <t><spanx style="verb">digestParamSet</spanx> - parameter identifier for corresponding GOST R 34.11-2012 (See <xref target="streebog" />).</t>
           </list>
         </t>
