@@ -14,14 +14,13 @@
     <title abbrev="PKIX: GOST R 34.10-2012, 34.11-2012">Using GOST R 34.10-2012 and GOST R 34.11-2012 algorithms with the Internet X.509 Public Key Infrastructure</title>
 
     <author fullname="Dmitry Baryshkov" initials="D." surname="Baryshkov" role="editor" >
-      <organization>Mentor Graphics (Ireland) Ltd.</organization>
+      <organization>Linaro Ltd.</organization>
       <address>
         <postal>
-          <street>Pevchesky lane, 12</street>
-          <city>Saint-Petersburg</city>
-          <region/>
-          <code>197046</code>
-          <country>Russian Federation</country>
+          <street>Harston Mill Royston Rd</street>
+          <city>Harston, Cambridge</city>
+          <code>CB22 7GG</code>
+          <country>United Kingdom</country>
         </postal>
         <email>dbaryshkov@gmail.com</email>
       </address>
