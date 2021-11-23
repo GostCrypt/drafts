@@ -302,8 +302,8 @@ GostR3410-2012-512-PublicKey ::= OCTET STRING (SIZE (128))</artwork></figure></t
         </figure></t>
         <t><figure>
             <preamble>IdentificationKind represents the way the receiver of the certificate was identified by the CA.</preamble>
-            <artwork>IdentificationKind ::= INTEGER { personal(O), remote_cert(1),
-            remote_passport(2), remote_system(3) }</artwork>
+            <artwork>IdentificationKind ::= INTEGER { personal(0), remote-cert(1),
+            remote-passport(2), remote-system(3) }</artwork>
             <postamble>Corresponding OID is <spanx style="verb">1.2.643.100.114</spanx>.</postamble>
         </figure></t>
         <t><figure>
@@ -665,8 +665,8 @@ BEGIN
 
     -- The method of identifying owner, when it applies/receives
     -- certificate in the CA
-    IdentificationKind ::= INTEGER { personal(0), remote_cert(1),
-         remote_passport(2), remote_system(3) }
+    IdentificationKind ::= INTEGER { personal(0), remote-cert(1),
+         remote-passport(2), remote-system(3) }
 
     id-IdentificationKind OBJECT IDENTIFIER ::=
          { id-fss identificationKind(114) }
