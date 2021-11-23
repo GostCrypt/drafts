@@ -489,12 +489,12 @@ BEGIN
     { id-tc26-sign-constants gost-3410-2012-512(2) }
 
     -- GOST R 34.10-2012 / 256 bits signature algorithm
-    id-tc26-gost3410-2012-256 OBJECT IDENTIFIER ::=
-    { id-tc26-sign gost3410-2012-256(1) }
+    id-tc26-gost3410-12-256 OBJECT IDENTIFIER ::=
+    { id-tc26-sign gost3410-12-256(1) }
 
     -- GOST R 34.10-2012 / 512 bits signature algorithm
-    id-tc26-gost3410-2012-512 OBJECT IDENTIFIER ::=
-    { id-tc26-sign gost3410-2012-512(2) }
+    id-tc26-gost3410-12-512 OBJECT IDENTIFIER ::=
+    { id-tc26-sign gost3410-12-512(2) }
 
     -- GOST R 34.11-2012 / 256 bits hash algorithm
     id-tc26-gost3411-12-256 OBJECT IDENTIFIER ::=
@@ -510,13 +510,13 @@ BEGIN
 
     -- Signature & hash algorithm GOST R 34.10-2012 / 256 bits
     -- with GOST R 34.11-2012
-    id-tc26-signwithdigest-gost3410-2012-256 OBJECT IDENTIFIER ::=
-    { id-tc26-signwithdigest gost3410-2012-256(2) }
+    id-tc26-signwithdigest-gost3410-12-256 OBJECT IDENTIFIER ::=
+    { id-tc26-signwithdigest gost3410-12-256(2) }
 
     -- Signature & hash algorithm GOST R 34.10-2012 / 512 bits
     -- with GOST R 34.11-2012
-    id-tc26-signwithdigest-gost3410-2012-512 OBJECT IDENTIFIER ::=
-    { id-tc26-signwithdigest gost3410-2012-512(3) }
+    id-tc26-signwithdigest-gost3410-12-512 OBJECT IDENTIFIER ::=
+    { id-tc26-signwithdigest gost3410-12-512(3) }
 
     -- GOST R 34.10-2012 / 256 bits Signature algorithm parameters ID:
     --  "Set A"
