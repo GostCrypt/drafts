@@ -597,8 +597,8 @@ BEGIN
     -- The main state registration number of juridical entities.
     OGRN ::= NumericString(SIZE (13))
 
-    id-ORGN OBJECT IDENTIFIER ::=
-         { id-fss orgn(1) }
+    id-OGRN OBJECT IDENTIFIER ::=
+         { id-fss ogrn(1) }
 
     --  The individual insurance account number
     SNILS ::= NumericString(SIZE (11))
