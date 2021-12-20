@@ -103,7 +103,7 @@
       </section>
     </section>
 
-    <section title="Signature algorithm support">
+    <section title="Signature Algorithm Support">
       <t>Conforming CAs MAY use GOST R 34.10-2012 signature algorithm to sign 
         certificates and CRLs. This signature algorithm MUST always be used 
         with GOST R 34.11-2012 hash function. It may use keys length of either 
@@ -154,7 +154,7 @@
 
     </section>
 
-    <section title="Hash functions support" anchor="streebog">
+    <section title="Hash Functions Support" anchor="streebog">
       <t>The ASN.1 object identifier used to identify GOST R 34.11-2012 hash
         function with 256-bit hash code is:</t>
       <t><figure><artwork><![CDATA[id-tc26-gost3411-12-256 OBJECT IDENTIFIER ::=
@@ -174,7 +174,7 @@
     </section>
 
     <section title="Subject Public Keys Information Fields">
-      <section title="Public Key identifiers">
+      <section title="Public Key Identifiers">
         <t>GOST R 34.10-2012 public keys with 256 bits private key length are
           identified by the following OID:</t>
 
@@ -190,7 +190,7 @@
         algorithms(1) sign(1) gost3410-12-512(2)}]]></artwork></figure></t>
       </section>
 
-      <section title="Public Key parameters">
+      <section title="Public Key Parameters">
 
         <t>When either of these identifiers appears as algorithm field in
           SubjectPublicKeyInfo.algorithm.algorithm field, parameters field MUST
@@ -241,7 +241,7 @@
             </list></t>
         </list></t>
       </section>
-      <section title="Public Key encoding">
+      <section title="Public Key Encoding">
         <t>The GOST R 34.10-2012 public key MUST be ASN.1 DER encoded as an
           OCTET STRING. This encoding SHALL be used as the content (i.e., the
           value) of the subjectPublicKey field (a BIT STRING) of
@@ -259,7 +259,7 @@ GostR3410-2012-512-PublicKey ::= OCTET STRING (SIZE (128))</artwork></figure></t
           second 64 octets contains the little-endian representation of <spanx
             style="verb">y</spanx> coordinates of the public key.</t>
       </section>
-      <section title="Key usage extension">
+      <section title="Key Usage Extension">
         <t>If the KeyUsage extension is present in a certificate with GOST R 34.10-2012 public key, the following values MAY be present:
           <list style="symbols">
             <t><spanx style="verb">digitalSignature</spanx> (0),</t>
@@ -284,10 +284,10 @@ GostR3410-2012-512-PublicKey ::= OCTET STRING (SIZE (128))</artwork></figure></t
       </section>
     </section>
 
-    <section title="Qualified certificates extensions">
+    <section title="Qualified Certificates Extensions">
       <t>This section defines additional object identifiers (OIDs) for use in
         qualified certificates for checking digital signatures.</t>
-      <section title="Distinguished Name additions">
+      <section title="Distinguished Name Additions">
         <t><figure>
             <preamble>OGRN is the main state registration number of juridical entities.</preamble>
             <artwork>OGRN ::= NUMERIC STRING (SIZE(13))</artwork>
@@ -320,7 +320,7 @@ GostR3410-2012-512-PublicKey ::= OCTET STRING (SIZE (128))</artwork></figure></t
             <postamble>Corresponding OID is <spanx style="verb">1.2.643.3.131.1.1</spanx>.</postamble>
         </figure></t>
       </section>
-      <section title="Certificate policies">
+      <section title="Certificate Policies">
         <t>Russian national regulation body for cryptography defines several security 
           levels of cryptographic tools. Depending on
           the class of cryptographic token used by certificate owner the
@@ -683,7 +683,7 @@ END -- RuStrongCertsSyntax
 ]]></artwork></figure></t>
     </section>
 
-    <section title="Public key parameters" anchor="pkparamsBCD">
+    <section title="Public key Parameters" anchor="pkparamsBCD">
       <t>Here we define three new object identifiers for three existing public key parameter sets
         defined in <xref target="RFC4357" />. These object identifiers MUST be used with 
         GOST R 34.10-2012 public keys only.</t>
@@ -707,7 +707,7 @@ END -- RuStrongCertsSyntax
     </section>
 
     <section title="Test Examples">
-      <section title="GOST R 34.10-2001 Test parameters (256 bit private key length)">
+      <section title="GOST R 34.10-2001 Test Parameters (256 Bit Private Key Length)">
         <t>This example uses curve defined in Section 7.1 of <xref target="RFC7091" />.</t>
         <t><figure><preamble>Private key is</preamble>
             <artwork>d = 0x7A929ADE789BB9BE10ED359DD39A72C11B60961F49397EEE1D19CE9891EC3B28</artwork>
@@ -716,7 +716,7 @@ END -- RuStrongCertsSyntax
             <artwork>X = 0x7F2B49E270DB6D90D8595BEC458B50C58585BA1D4E9B788F6689DBD8E56FD80B
 Y = 0x26F1B489D6701DD185C8413A977B3CBBAF64D1C593D26627DFFB101A87FF77DA</artwork>
         </figure></t>
-        <section title="Certificate request">
+        <section title="Certificate Request">
           <t><figure><artwork><![CDATA[
 -----BEGIN CERTIFICATE REQUEST-----
 MIHTMIGBAgEAMBIxEDAOBgNVBAMTB0V4YW1wbGUwZjAfBggqhQMHAQEBATATBgcq
@@ -884,7 +884,7 @@ RstQv19CIaADrT0XJ1PJSpw3ox0gQaoo0vGrFIKAzZ7Vb+2kGXQFNVSkJ2e4OtBD
         </section>
       </section>
 
-      <section title="GOST R 34.10-2012 TC26-256-A parameters (256 bit private key length)">
+      <section title="GOST R 34.10-2012 TC26-256-A Parameters (256 Bit Private Key Length)">
         <t>This example uses curve defined in Section A.2 of <xref target="RFC7836" />.</t>
         <t><figure><preamble>Private key is</preamble>
             <artwork>d = 0x3A929ADE789BB9BE10ED359DD39A72C10B87C83F80BE18B85C041F4325B62EC1</artwork>
@@ -893,7 +893,7 @@ RstQv19CIaADrT0XJ1PJSpw3ox0gQaoo0vGrFIKAzZ7Vb+2kGXQFNVSkJ2e4OtBD
             <artwork>X = 0x99C3DF265EA59350640BA69D1DE04418AF3FEA03EC0F85F2DD84E8BED4952774
 Y = 0xE218631A69C47C122E2D516DA1C09E6BD19344D94389D1F16C0C4D4DCF96F578</artwork>
         </figure></t>
-        <section title="Certificate request">
+        <section title="Certificate Request">
           <t><figure><artwork><![CDATA[
 -----BEGIN CERTIFICATE REQUEST-----
 MIHKMHkCAQAwEjEQMA4GA1UEAxMHRXhhbXBsZTBeMBcGCCqFAwcBAQEBMAsGCSqF
@@ -1059,7 +1059,7 @@ B/6y571v4JY/VjJnNZ9c2Oq0UFmtHQ4dpb40fG8bUlbHrqwgCtZKx3pvWzoOCXMY
         </section>
       </section>
 
-      <section title="GOST R 34.10-2012 Test parameters (512 bit private key length)">
+      <section title="GOST R 34.10-2012 Test Parameters (512 Bit Private Key Length)">
         <t>This example uses curve defined in <xref target="curve512test" />.</t>
         <t><figure><preamble>Private key is</preamble>
             <artwork>d = 0x0BA6048AADAE241BA40936D47756D7C93091A0E8514669700EE7508E508B1020\\
@@ -1071,7 +1071,7 @@ B/6y571v4JY/VjJnNZ9c2Oq0UFmtHQ4dpb40fG8bUlbHrqwgCtZKx3pvWzoOCXMY
 Y = 0x37C7C90CD40B0F5621DC3AC1B751CFA0E2634FA0503B3D52639F5D7FB72AFD61\\
       EA199441D943FFE7F0C70A2759A3CDB84C114E1F9339FDF27F35ECA93677BEEC</artwork>
         </figure></t>
-        <section title="Certificate request">
+        <section title="Certificate Request">
           <t><figure><artwork><![CDATA[
 -----BEGIN CERTIFICATE REQUEST-----
 MIIBTzCBvAIBADASMRAwDgYDVQQDEwdFeGFtcGxlMIGgMBcGCCqFAwcBAQECMAsG
@@ -1264,7 +1264,7 @@ l8kGmYUCYMk7y82cXDMX4ZNE4XOuNg==
       </section>
     </section>
 
-    <section anchor="curve512test" title="GOST R 34.10-2012 Test parameters (curve definition)">
+    <section anchor="curve512test" title="GOST R 34.10-2012 Test Parameters (Curve Definition)">
       <t>The following parameters must be used for digital signature generation
         and verification.</t>
 
