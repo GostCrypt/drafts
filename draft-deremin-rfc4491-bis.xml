@@ -87,7 +87,7 @@
 
       <t>This specification defines the contents of the signatureAlgorithm,
         signatureValue, signature, and subjectPublicKeyInfo fields within X.509
-        Certificates and CRLs.  For each algorithm, the appropriate
+        Certificates and Certificate Revocation Lists (CRLs). For each algorithm, the appropriate
         alternatives for the keyUsage certificate extension are provided.</t>
       <t>This specification is developed to facilitate implementations that
         wish to support the GOST algorithms.  This document does not imply
@@ -104,7 +104,7 @@
     </section>
 
     <section title="Signature Algorithm Support">
-      <t>Conforming CAs MAY use GOST R 34.10-2012 signature algorithm to sign 
+      <t>Conforming Certificate Authorities (CAs) MAY use GOST R 34.10-2012 signature algorithm to sign
         certificates and CRLs. This signature algorithm MUST always be used 
         with GOST R 34.11-2012 hash function. It may use keys length of either 
         256 bits or 512 bits.</t>
