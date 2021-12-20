@@ -69,6 +69,10 @@
         formats, identifiers, and parameter formats for the algorithms GOST R
         34.10-2012 and GOST R 34.11-2012 for use in Internet X.509 Public Key
         Infrastructure (PKI).</t>
+      <t>This specification is developed to facilitate implementations that
+        wish to support the GOST algorithms. This document does not imply
+        IETF endorsement of the cryptographic algorithms used in this
+        document.</t>
     </abstract>
   </front>
 
@@ -85,6 +89,10 @@
         signatureValue, signature, and subjectPublicKeyInfo fields within X.509
         Certificates and CRLs.  For each algorithm, the appropriate
         alternatives for the keyUsage certificate extension are provided.</t>
+      <t>This specification is developed to facilitate implementations that
+        wish to support the GOST algorithms.  This document does not imply
+        IETF endorsement of the cryptographic algorithms used in this
+        document.</t>
 
       <section title="Requirements Language">
         <t>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
