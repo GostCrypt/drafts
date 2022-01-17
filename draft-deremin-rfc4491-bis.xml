@@ -9,7 +9,7 @@
 <?rfc sortrefs="yes" ?>
 <?rfc compact="yes" ?>
 <?rfc subcompact="no" ?>
-<rfc category="info" docName="draft-deremin-rfc4491-bis-10" ipr="trust200902">
+<rfc category="info" docName="draft-deremin-rfc4491-bis-11" ipr="trust200902">
   <front>
     <title abbrev="PKIX: GOST R 34.10-2012, 34.11-2012">Using GOST R 34.10-2012 and GOST R 34.11-2012 algorithms with the Internet X.509 Public Key Infrastructure</title>
 
@@ -193,7 +193,7 @@
       <section title="Public Key Parameters">
 
         <t>When either of these identifiers appears as algorithm field in
-          SubjectPublicKeyInfo.algorithm.algorithm field, parameters field MUST
+          SubjectPublicKeyInfo.algorithm.algorithm field, the parameters field MUST
           have the following structure:
         </t>
 
@@ -278,7 +278,7 @@ GostR3410-2012-512-PublicKey ::= OCTET STRING (SIZE (128))</artwork></figure></t
           style="verb">KeyUsage</spanx> extension with <spanx
           style="verb">encipherOnly</spanx> and <spanx
           style="verb">decipherOnly</spanx> flags being optional.  However
-          flags <spanx style="verb">encipherOnly</spanx> and <spanx
+          the <spanx style="verb">encipherOnly</spanx> and <spanx
           style="verb">decipherOnly</spanx> flags MUST NOT be present
           simultaneously.</t>
       </section>
